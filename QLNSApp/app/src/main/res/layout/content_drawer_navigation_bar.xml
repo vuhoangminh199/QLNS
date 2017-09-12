@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.tma.hoangminh.qlnsapp.DrawerNavigationBar"
+    tools:context="com.tma.hoangminh.qlnsapp.Presentation.Fragments.DrawerNavigationBar"
     tools:showIn="@layout/app_bar_drawer_navigation_bar">
 
 </android.support.constraint.ConstraintLayout>

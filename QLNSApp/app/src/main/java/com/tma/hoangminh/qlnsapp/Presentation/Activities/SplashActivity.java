@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.tma.hoangminh.qlnsapp.DrawerNavigationBar;
+import com.tma.hoangminh.qlnsapp.Presentation.Fragments.DrawerNavigationBar;
 
 public class SplashActivity extends AppCompatActivity {
     @Override

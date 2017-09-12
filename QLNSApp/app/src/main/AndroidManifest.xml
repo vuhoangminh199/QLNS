@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DrawerNavigationBar"
+            android:name=".Presentation.Fragments.DrawerNavigationBar"
             android:label="@string/title_activity_drawer_navigation_bar"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

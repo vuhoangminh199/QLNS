@@ -1,4 +1,4 @@
-package com.tma.hoangminh.qlnsapp;
+package com.tma.hoangminh.qlnsapp.Presentation.Fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,9 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.tma.hoangminh.qlnsapp.Presentation.Fragments.MainFragment;
-import com.tma.hoangminh.qlnsapp.Presentation.Fragments.ThreeFragment;
-import com.tma.hoangminh.qlnsapp.Presentation.Fragments.TwoFragment;
+import com.tma.hoangminh.qlnsapp.R;
 
 public class DrawerNavigationBar extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
