@@ -8,20 +8,17 @@ import android.view.ViewGroup;
 
 import com.tma.hoangminh.qlnsapp.R;
 
-
-
-public class TwoFragment extends android.support.v4.app.Fragment {
-
+public class SearchFragment extends android.support.v4.app.Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_two, container, false);
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
         return view;
     }
 }

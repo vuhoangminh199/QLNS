@@ -1,15 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/action_item1"
-        android:icon="@mipmap/ic_launcher"
-        android:title="item 1"/>
-    <item
-        android:id="@+id/action_item2"
-        android:icon="@mipmap/ic_launcher"
-        android:title="item_2"/>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_item3"
-        android:icon="@mipmap/ic_launcher"
-        android:title="item_3"/>
+        android:icon="@drawable/search_uncheck"
+        app:showAsAction="ifRoom"
+        android:checkable="true"
+        android:title="TÌM KIẾM"/>
+    <item
+        android:id="@+id/action_item2"
+        android:icon="@drawable/bxh_uncheck"
+        app:showAsAction="ifRoom"
+        android:checkable="true"
+        android:title="BXH"/>
+
+    <item
+        android:id="@+id/action_item1"
+        android:icon="@drawable/ic_booksplash"
+        app:showAsAction="ifRoom"
+        android:checkable="true"
+        android:title="THƯ VIỆN"/>
+    <item
+        android:id="@+id/action_item4"
+        android:icon="@drawable/news_uncheck"
+        app:showAsAction="ifRoom"
+        android:checkable="true"
+        android:checked="true"
+        android:title="TIN TỨC"/>
+    <item
+        android:id="@+id/action_item5"
+        android:icon="@drawable/user_unchecked"
+        app:showAsAction="ifRoom"
+        android:checked="false"
+        android:checkable="true"
+        android:title="CÁ NHÂN"/>
 </menu>

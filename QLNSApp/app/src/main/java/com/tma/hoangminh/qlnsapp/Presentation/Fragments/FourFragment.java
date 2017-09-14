@@ -8,10 +8,11 @@ import android.view.ViewGroup;
 
 import com.tma.hoangminh.qlnsapp.R;
 
+/**
+ * Created by Dell on 9/12/2017.
+ */
 
-
-public class TwoFragment extends android.support.v4.app.Fragment {
-
+public class FourFragment extends android.support.v4.app.Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +22,7 @@ public class TwoFragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_two, container, false);
+        View view = inflater.inflate(R.layout.fragment_four, container, false);
         return view;
     }
 }
