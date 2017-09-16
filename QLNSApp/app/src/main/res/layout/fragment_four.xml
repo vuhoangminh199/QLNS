@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/truiton_image"
         android:layout_centerHorizontal="true"
-        android:text="BXH"
+        android:text="Tin Tuc"
         android:textSize="30sp"/>
 
 </RelativeLayout>
