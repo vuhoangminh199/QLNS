@@ -43,7 +43,7 @@ public class MainFragment extends android.support.v4.app.Fragment {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         mViewFlipper = view.findViewById(R.id.view_flipper);
         myRecyclerViewChonLoc = view.findViewById(R.id.recycler_view);
-        myRecyclerViewPhatHanh = view.findViewById(R.id.recycler_view_phathanh);
+        myRecyclerViewPhatHanh =(RecyclerView) view.findViewById(R.id.recycler_view_phathanh);
         myRecyclerViewHot = view.findViewById(R.id.recycler_view_hot);
         myRecyclerViewBanChay = view.findViewById(R.id.recycler_view_banchay);
         myRecyclerViewThich = view.findViewById(R.id.recycler_view_thich);

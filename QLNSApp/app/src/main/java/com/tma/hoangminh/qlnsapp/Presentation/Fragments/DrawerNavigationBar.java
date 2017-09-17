@@ -21,7 +21,7 @@ public class DrawerNavigationBar extends AppCompatActivity implements Navigation
     private MainFragment mainFragment;
     private TwoFragment twoFragment;
     private UserFragment userFragment;
-    private FourFragment fourFragment;
+    private NewsFragment fourFragment;
     private SearchFragment searchFragment;
     private BottomNavigationView bottomNavigationView;
     @Override
@@ -108,7 +108,7 @@ public class DrawerNavigationBar extends AppCompatActivity implements Navigation
         mainFragment = new MainFragment();
         twoFragment = new TwoFragment();
         userFragment = new UserFragment();
-        fourFragment = new FourFragment();
+        fourFragment = new NewsFragment();
         searchFragment = new SearchFragment();
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
         bottomNavigationView.setItemIconTintList(null);

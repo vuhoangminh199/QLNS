@@ -9,16 +9,17 @@ import android.widget.ListView;
 
 import com.tma.hoangminh.qlnsapp.Domain.Model.Sach;
 import com.tma.hoangminh.qlnsapp.Domain.UseCase.GetListBookUseCase;
-import com.tma.hoangminh.qlnsapp.Presentation.Adapters.SearchListAdapter;
+import com.tma.hoangminh.qlnsapp.Presentation.Adapters.NewsAdapter;
 import com.tma.hoangminh.qlnsapp.R;
 
 import java.util.List;
 
-public class SearchFragment extends android.support.v4.app.Fragment {
-    private ListView mySearchList;
-    private SearchListAdapter mySearchListAdapter;
+public class NewsFragment extends android.support.v4.app.Fragment {
+    private ListView myNewsList;
+    private NewsAdapter myNewsListAdapter;
     private List<Sach> mySachList;
     private GetListBookUseCase useCase;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,11 +29,11 @@ public class SearchFragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_search, container, false);
+        View view = inflater.inflate(R.layout.fragment_news, container, false);
         Init();
-        mySearchList = view.findViewById(R.id.listview_search);
-        mySearchListAdapter = new SearchListAdapter(SearchFragment.this.getContext(), mySachList);
-        mySearchList.setAdapter(mySearchListAdapter);
+        myNewsList = view.findViewById(R.id.listview_news);
+        myNewsListAdapter = new NewsAdapter(NewsFragment.this.getContext(), mySachList);
+        myNewsList.setAdapter(myNewsListAdapter);
         return view;
     }
 

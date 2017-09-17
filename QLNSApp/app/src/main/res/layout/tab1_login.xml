@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/input_layout_emaildtlogin"
@@ -12,15 +11,26 @@
         android:layout_marginTop="15dp">
 
         <EditText
-            android:id="@+id/emaildtlogin"
-            android:textSize="15dp"
-            android:layout_gravity="center"
+            android:id="@+id/edit_sdt"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginBottom="10dp"
-            android:hint="Email/Số điện thoại"/>
-
+            android:hint="Số điện thoại"
+            android:inputType="number"
+            android:textSize="15dp" />
     </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/phone_error"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:text="Sai rui"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="15dp"
+        android:visibility="gone" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/input_layout_matkhaulogin"
@@ -28,48 +38,36 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/matkhaulogin"
-            android:inputType="textPassword"
-            android:textSize="15dp"
-            android:layout_gravity="center"
+            android:id="@+id/edit_matkhau"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginBottom="10dp"
-            android:hint="Mật khẩu"/>
+            android:hint="Mật khẩu"
+            android:inputType="textPassword"
+            android:textSize="15dp" />
 
     </android.support.design.widget.TextInputLayout>
 
+    <TextView
+        android:id="@+id/password_error"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:text="Sai rui"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="15dp"
+        android:visibility="gone" />
+
     <Button
         android:id="@+id/btnDangNhap"
-        android:text="Đăng nhập"
-        android:textSize="18dp"
-        android:layout_gravity="center"
         android:layout_width="340dp"
         android:layout_height="42dp"
+        android:layout_gravity="center"
         android:layout_marginTop="15dp"
-        android:textColor="#ffffff"
         android:background="@drawable/dangnhap_dangky"
-        />
-
-    <TextView
-        android:id="@+id/txtView1"
-        android:text="Hoặc đăng nhập với"
-        android:textSize="15dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/btnFacebook"
-        android:text="f"
-        android:textSize="34dp"
-        android:gravity="center"
-        android:textAllCaps="false"
-        android:layout_gravity="center"
-        android:layout_width="340dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="15dp"
+        android:text="Đăng nhập"
         android:textColor="#ffffff"
-        android:background="@drawable/facebook"/>
+        android:textSize="18dp" />
 </LinearLayout>

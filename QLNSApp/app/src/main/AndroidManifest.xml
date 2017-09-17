@@ -25,6 +25,12 @@
             android:name=".Presentation.Fragments.DrawerNavigationBar"
             android:label="@string/title_activity_drawer_navigation_bar"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Presentation.Activities.BookDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Presentation.Activities.BookGridAcitivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
