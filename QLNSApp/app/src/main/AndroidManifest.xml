@@ -31,6 +31,9 @@
         <activity
             android:name=".Presentation.Activities.BookGridAcitivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Presentation.Activities.LoginResgiserActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

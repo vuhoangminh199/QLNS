@@ -19,7 +19,7 @@ public class NewsFragment extends android.support.v4.app.Fragment {
     private NewsAdapter myNewsListAdapter;
     private List<Sach> mySachList;
     private GetListBookUseCase useCase;
-
+    private View view;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,16 +29,16 @@ public class NewsFragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_news, container, false);
+        view = inflater.inflate(R.layout.fragment_news, container, false);
         Init();
-        myNewsList = view.findViewById(R.id.listview_news);
-        myNewsListAdapter = new NewsAdapter(NewsFragment.this.getContext(), mySachList);
-        myNewsList.setAdapter(myNewsListAdapter);
         return view;
     }
 
     public void Init(){
         useCase = new GetListBookUseCase();
         mySachList = useCase.getBookList();
+        myNewsList = view.findViewById(R.id.listview_news);
+        myNewsListAdapter = new NewsAdapter(NewsFragment.this.getContext(), mySachList);
+        myNewsList.setAdapter(myNewsListAdapter);
     }
 }
