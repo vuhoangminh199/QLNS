@@ -1,2 +1,2 @@
 # QLNS
-Team Mobile Môn Testing
+Team Mobile
