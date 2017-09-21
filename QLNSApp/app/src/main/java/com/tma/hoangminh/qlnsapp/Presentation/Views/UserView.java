@@ -6,14 +6,14 @@ public interface UserView {
     String getRPhonenumber();
     String getRPassword();
     String getRName();
-    void navigationLoginSuccess();
+    void navigationLoginSuccess(String name);
     void showErrorPassword(String mes);
     void hideErrorPassword();
     void showErrorPhone(String mes);
     void hideErrorPhone();
     void showLoginFail();
 
-    void navigationRegisterSuccess();
+    void navigationRegisterSuccess(String name);
     void showErrorRPassword(String mes);
     void hideErrorRPassword();
     void showErrorRPhone(String mes);

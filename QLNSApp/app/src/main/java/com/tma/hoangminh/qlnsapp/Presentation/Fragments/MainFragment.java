@@ -10,27 +10,29 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ViewFlipper;
 
-import com.tma.hoangminh.qlnsapp.Presentation.Adapters.BanChayAdapter;
+import com.tma.hoangminh.qlnsapp.Domain.Model.Sach;
 import com.tma.hoangminh.qlnsapp.Presentation.Adapters.ChonLocAdapter;
 import com.tma.hoangminh.qlnsapp.Presentation.Adapters.HotAdapter;
 import com.tma.hoangminh.qlnsapp.Presentation.Adapters.PhatHanhAdapter;
 import com.tma.hoangminh.qlnsapp.Presentation.Adapters.ThichAdapter;
+import com.tma.hoangminh.qlnsapp.Presentation.Presenters.NewsPresenter;
+import com.tma.hoangminh.qlnsapp.Presentation.Views.NewsView;
 import com.tma.hoangminh.qlnsapp.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class MainFragment extends android.support.v4.app.Fragment {
+public class MainFragment extends android.support.v4.app.Fragment implements NewsView {
 
     private ViewFlipper mViewFlipper;
-    private RecyclerView myRecyclerViewChonLoc, myRecyclerViewPhatHanh, myRecyclerViewHot, myRecyclerViewBanChay, myRecyclerViewThich;
-    private RecyclerView.LayoutManager myManagerChonLoc, myManagerPhatHanh, myManagerHot, myManagerBanChay, myManagerThich;
+    private RecyclerView myRecyclerViewChonLoc, myRecyclerViewPhatHanh, myRecyclerViewHot, myRecyclerViewThich;
+    private RecyclerView.LayoutManager myManagerChonLoc, myManagerPhatHanh, myManagerHot, myManagerThich;
     private ChonLocAdapter myAdapterChonLoc;
     private PhatHanhAdapter myAdapterPhatHanh;
     private HotAdapter myAdapterHot;
-    private BanChayAdapter myAdapterBanChay;
     private ThichAdapter myAdapterThich;
     private ArrayList<Integer> imageList;
-
+    private NewsPresenter presenter;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +47,6 @@ public class MainFragment extends android.support.v4.app.Fragment {
         myRecyclerViewChonLoc = view.findViewById(R.id.recycler_view);
         myRecyclerViewPhatHanh =(RecyclerView) view.findViewById(R.id.recycler_view_phathanh);
         myRecyclerViewHot = view.findViewById(R.id.recycler_view_hot);
-        myRecyclerViewBanChay = view.findViewById(R.id.recycler_view_banchay);
         myRecyclerViewThich = view.findViewById(R.id.recycler_view_thich);
         SetUpFlipper();
         Init();
@@ -61,7 +62,9 @@ public class MainFragment extends android.support.v4.app.Fragment {
         imageList.add(R.drawable.ic_booksplash);
         imageList.add(R.drawable.ic_booksplash);
         imageList.add(R.drawable.ic_booksplash);
-
+        presenter = new NewsPresenter(MainFragment.this);
+        presenter.SetUpListBook();
+        presenter.SetUpListBookHot();
     }
 
     public void SetUpAdapter(){
@@ -70,40 +73,27 @@ public class MainFragment extends android.support.v4.app.Fragment {
         myManagerChonLoc = new LinearLayoutManager(MainFragment.this.getContext(), LinearLayoutManager.HORIZONTAL, false);
         myRecyclerViewChonLoc.setLayoutManager(myManagerChonLoc);
         myRecyclerViewChonLoc.setNestedScrollingEnabled(false);
-        myAdapterChonLoc = new ChonLocAdapter(imageList);
-        myRecyclerViewChonLoc.setAdapter(myAdapterChonLoc);
+
 
         /*-Phat Hanh Adapter-*/
         myRecyclerViewPhatHanh.setHasFixedSize(true);
         myManagerPhatHanh = new LinearLayoutManager(MainFragment.this.getContext(), LinearLayoutManager.HORIZONTAL, false);
         myRecyclerViewPhatHanh.setLayoutManager(myManagerPhatHanh);
         myRecyclerViewPhatHanh.setNestedScrollingEnabled(false);
-        myAdapterPhatHanh = new PhatHanhAdapter(imageList);
-        myRecyclerViewPhatHanh.setAdapter(myAdapterPhatHanh);
+
 
          /*-Hot Adapter-*/
         myRecyclerViewHot.setHasFixedSize(true);
         myManagerHot = new LinearLayoutManager(MainFragment.this.getContext(), LinearLayoutManager.HORIZONTAL, false);
         myRecyclerViewHot.setLayoutManager(myManagerHot);
         myRecyclerViewHot.setNestedScrollingEnabled(false);
-        myAdapterHot = new HotAdapter(imageList);
-        myRecyclerViewHot.setAdapter(myAdapterHot);
-
-         /*-Ban Chay Adapter-*/
-        myRecyclerViewBanChay.setHasFixedSize(true);
-        myManagerBanChay = new LinearLayoutManager(MainFragment.this.getContext(), LinearLayoutManager.HORIZONTAL, false);
-        myRecyclerViewBanChay.setLayoutManager(myManagerBanChay);
-        myRecyclerViewBanChay.setNestedScrollingEnabled(false);
-        myAdapterBanChay = new BanChayAdapter(imageList);
-        myRecyclerViewBanChay.setAdapter(myAdapterBanChay);
 
          /*-Thich Adapter-*/
         myRecyclerViewThich.setHasFixedSize(true);
         myManagerThich = new LinearLayoutManager(MainFragment.this.getContext(), LinearLayoutManager.HORIZONTAL, false);
         myRecyclerViewThich.setLayoutManager(myManagerThich);
         myRecyclerViewThich.setNestedScrollingEnabled(false);
-        myAdapterThich = new ThichAdapter(imageList);
-        myRecyclerViewThich.setAdapter(myAdapterThich);
+
     }
 
     public void SetUpFlipper(){
@@ -114,5 +104,21 @@ public class MainFragment extends android.support.v4.app.Fragment {
         mViewFlipper.setOutAnimation(AnimationUtils.loadAnimation(MainFragment.this.getContext(), R.anim.out_from_left));
         mViewFlipper.setInAnimation(AnimationUtils.loadAnimation(MainFragment.this.getContext(), R.anim.in_from_right));
         mViewFlipper.setOutAnimation(AnimationUtils.loadAnimation(MainFragment.this.getContext(), R.anim.out_from_right));
+    }
+
+    @Override
+    public void SetUpListBook(List<Sach> listBook) {
+        myAdapterChonLoc = new ChonLocAdapter(getContext(),listBook);
+        myRecyclerViewChonLoc.setAdapter(myAdapterChonLoc);
+        myAdapterThich = new ThichAdapter(getContext(), listBook);
+        myRecyclerViewThich.setAdapter(myAdapterThich);
+        myAdapterHot = new HotAdapter(getContext(), listBook);
+        myRecyclerViewHot.setAdapter(myAdapterHot);
+    }
+
+    @Override
+    public void SetUpListBookHot(List<Sach> listBook) {
+        myAdapterPhatHanh = new PhatHanhAdapter(listBook);
+        myRecyclerViewPhatHanh.setAdapter(myAdapterPhatHanh);
     }
 }

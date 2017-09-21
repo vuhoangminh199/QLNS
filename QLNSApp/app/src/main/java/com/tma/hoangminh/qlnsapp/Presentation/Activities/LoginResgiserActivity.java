@@ -1,6 +1,8 @@
 package com.tma.hoangminh.qlnsapp.Presentation.Activities;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -24,6 +26,8 @@ public class LoginResgiserActivity extends AppCompatActivity implements UserView
     private UserPresenter presenter;
     private TextView phoneerror, passworderror, phoneRerror, nameRerror, passRerror;
     private Toolbar toolbar;
+    private ProgressDialog progressDialog;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,14 +79,27 @@ public class LoginResgiserActivity extends AppCompatActivity implements UserView
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_left);
         getSupportActionBar().setTitle("");
-
+        progressDialog = new ProgressDialog(LoginResgiserActivity.this);
+        progressDialog.setMessage("Vui Lòng Chờ......");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.setCancelable(false);
+        progressDialog.setProgress(0);
     }
 
     public void Listener() {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.onPressLogin();
+                progressDialog.show();
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        presenter.onPressLogin();
+                    }
+                }, 2500);
             }
         });
 
@@ -174,7 +191,15 @@ public class LoginResgiserActivity extends AppCompatActivity implements UserView
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.onPressRegister();
+                progressDialog.show();
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        presenter.onPressRegister();
+                    }
+                }, 2500);
+
             }
         });
     }
@@ -205,12 +230,18 @@ public class LoginResgiserActivity extends AppCompatActivity implements UserView
     }
 
     @Override
-    public void navigationLoginSuccess() {
+    public void navigationLoginSuccess(String name) {
+        progressDialog.hide();
         Toast.makeText(LoginResgiserActivity.this, "Thanh cong", Toast.LENGTH_SHORT).show();
+        getIntent().putExtra("username",name);
+        setResult(2,getIntent());
+        finish();
+
     }
 
     @Override
     public void showErrorPassword(String mes) {
+        progressDialog.hide();
         passworderror.setText(mes.toString());
         passworderror.setVisibility(View.VISIBLE);
     }
@@ -222,6 +253,7 @@ public class LoginResgiserActivity extends AppCompatActivity implements UserView
 
     @Override
     public void showErrorPhone(String mes) {
+        progressDialog.hide();
         phoneerror.setText(mes.toString());
         phoneerror.setVisibility(View.VISIBLE);
     }
@@ -233,16 +265,22 @@ public class LoginResgiserActivity extends AppCompatActivity implements UserView
 
     @Override
     public void showLoginFail() {
-        Toast.makeText(LoginResgiserActivity.this, "Thanh cong", Toast.LENGTH_SHORT).show();
+        progressDialog.hide();
+        Toast.makeText(LoginResgiserActivity.this, "Mật Khẩu hoặc Số điện thoại không đúng", Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void navigationRegisterSuccess() {
+    public void navigationRegisterSuccess(String name) {
+        progressDialog.hide();
         Toast.makeText(LoginResgiserActivity.this, "Dang ki Thang Cong", Toast.LENGTH_SHORT).show();
+        getIntent().putExtra("username",name);
+        setResult(2,getIntent());
+        finish();
     }
 
     @Override
     public void showErrorRPassword(String mes) {
+        progressDialog.hide();
         passRerror.setText(mes.toString());
         passRerror.setVisibility(View.VISIBLE);
     }
@@ -254,6 +292,7 @@ public class LoginResgiserActivity extends AppCompatActivity implements UserView
 
     @Override
     public void showErrorRPhone(String mes) {
+        progressDialog.hide();
         phoneRerror.setText(mes.toString());
         phoneRerror.setVisibility(View.VISIBLE);
     }
@@ -265,6 +304,7 @@ public class LoginResgiserActivity extends AppCompatActivity implements UserView
 
     @Override
     public void showErrorRName(String mes) {
+        progressDialog.hide();
         nameRerror.setText(mes.toString());
         nameRerror.setVisibility(View.VISIBLE);
     }
@@ -276,6 +316,7 @@ public class LoginResgiserActivity extends AppCompatActivity implements UserView
 
     @Override
     public void showRegisterFail() {
+        progressDialog.hide();
         Toast.makeText(LoginResgiserActivity.this, "Dang ki That Bai", Toast.LENGTH_SHORT).show();
     }
 

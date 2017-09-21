@@ -70,4 +70,5 @@
         android:text="Đăng nhập"
         android:textColor="#ffffff"
         android:textSize="18dp" />
+
 </LinearLayout>

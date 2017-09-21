@@ -44,9 +44,9 @@
                     android:id="@+id/tabDangnhap"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
+                    android:orientation="vertical">
                     <include layout="@layout/tab1_login"></include>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -56,8 +56,10 @@
                     android:orientation="horizontal">
 
                     <include layout="@layout/tab2_signup"></include>
+
                 </LinearLayout>
             </FrameLayout>
+
 
         </LinearLayout>
     </TabHost>

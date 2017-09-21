@@ -9,6 +9,7 @@
         android:layout_height="300dp">
 
         <ImageView
+            android:id="@+id/image_bg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:alpha="0.5"
@@ -24,10 +25,10 @@
 
             <ImageView
                 android:id="@+id/imageBack"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
                 android:src="@drawable/ic_left" />
 
             <LinearLayout
@@ -37,6 +38,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/title_bar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Chuyen hay ne"
@@ -46,6 +48,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/art_bar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="vu hoang minh"
@@ -55,11 +58,13 @@
             </LinearLayout>
         </LinearLayout>
 
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/image_bookdetail"
+            android:layout_width="200dp"
             android:layout_height="200dp"
-            android:layout_gravity="bottom"
-            android:id="@+id/recycler_view_bookdetail"/>
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="15dp"
+            android:src="@mipmap/ic_launcher" />
 
     </FrameLayout>
 
@@ -75,6 +80,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/title_book"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Chuyen hay ne"
@@ -84,19 +90,11 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/art_book"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="vu hoang minh"
                 android:textAlignment="center"
-                android:textColor="#919090" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1000 dong"
-                android:layout_marginTop="5dp"
-                android:textAlignment="center"
-                android:textStyle="bold"
                 android:textColor="#919090" />
 
             <LinearLayout
@@ -108,34 +106,32 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <Button
-                    android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/price_book"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="15dp"
-                    android:layout_weight="1"
+                    android:text="1000 dong"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:layout_width="150dp"
+                    android:id="@+id/btnorder"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
                     android:background="@drawable/custom_button_bgholoblue"
                     android:drawableLeft="@drawable/ic_shopping"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:text="Đặt Mua"
                     android:textColor="@android:color/white"
-
-                    android:textStyle="bold" />
-
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/custom_button_bgholoblue"
-                    android:drawableLeft="@drawable/ic_heart"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="Quan Tâm"
-                    android:textColor="@android:color/white"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <TextView
+                android:id="@+id/des_book"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"

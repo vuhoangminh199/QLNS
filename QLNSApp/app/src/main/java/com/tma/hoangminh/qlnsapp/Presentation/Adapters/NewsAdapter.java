@@ -9,9 +9,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.tma.hoangminh.qlnsapp.Domain.Model.Sach;
+import com.tma.hoangminh.qlnsapp.Presentation.Fragments.DrawerNavigationBar;
 import com.tma.hoangminh.qlnsapp.R;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 public class NewsAdapter  extends BaseAdapter {
@@ -48,8 +52,13 @@ public class NewsAdapter  extends BaseAdapter {
         TextView bookTitle = (TextView) view.findViewById(R.id.title_news);
         TextView bookDes = (TextView) view.findViewById(R.id.des_mes);
         TextView labelMore = (TextView) view.findViewById(R.id.label_more);
+        try {
+            URL url = new URL(DrawerNavigationBar.URL + "SACHes/GetSACHImage/" + bookList.get(i).getMasach());
+            Glide.with(context).fromUrl().asBitmap().load(url).centerCrop().into(imageBook);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
         //imageBook.setImageResource(bookList.get(i).getAnhbia());
-        imageBook.setImageResource(R.drawable.ic_booksplash);
         bookTitle.setText(bookList.get(i).getTensach());
         bookDes.setText(bookList.get(i).getMota());
         labelMore.setOnClickListener(new View.OnClickListener() {

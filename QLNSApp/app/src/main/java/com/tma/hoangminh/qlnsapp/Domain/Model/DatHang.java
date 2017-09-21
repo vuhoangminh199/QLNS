@@ -5,6 +5,8 @@ public class DatHang {
     int tongdonhang;
     boolean tinhtrang;
 
+    public DatHang(){}
+
     public DatHang(String madathang, String makh, String sdt, String diachi, String ngaydat, String ngaygiao, int tongdonhang, boolean tinhtrang) {
         this.madathang = madathang;
         this.makh = makh;

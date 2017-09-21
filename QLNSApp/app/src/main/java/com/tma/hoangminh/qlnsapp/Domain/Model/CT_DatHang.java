@@ -1,10 +1,28 @@
 package com.tma.hoangminh.qlnsapp.Domain.Model;
 
-public class CT_DatHang {
-    String madathang, masach, timedel;
-    int soluongdat, dongia, thanhtien, delflag;
+import com.google.gson.annotations.SerializedName;
 
-    public CT_DatHang(String madathang, String masach, String timedel, int soluongdat, int dongia, int thanhtien, int delflag) {
+public class CT_DatHang {
+    @SerializedName("madathang")
+    String madathang;
+    @SerializedName("masach")
+    String masach;
+    @SerializedName("timedel")
+    String timedel;
+    @SerializedName("soluongdat")
+    int soluongdat;
+    @SerializedName("dongia")
+    int dongia;
+    @SerializedName("thanhtien")
+    int thanhtien;
+    @SerializedName("delflag")
+    int delflag;
+
+    public CT_DatHang(){
+
+    }
+
+    public CT_DatHang(String madathang, String masach, int soluongdat, int dongia, int thanhtien, int delflag, String timedel) {
         this.madathang = madathang;
         this.masach = masach;
         this.timedel = timedel;

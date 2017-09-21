@@ -1,9 +1,11 @@
 package com.tma.hoangminh.qlnsapp.Presentation.Views;
 
-/**
- * Created by Dell on 9/14/2017.
- */
+import com.tma.hoangminh.qlnsapp.Domain.Model.Sach;
+
+import java.util.List;
 
 public interface BookDetailView {
     void navigationBack();
+    void SetUpListBook(List<Sach> listBook);
+    void navigateToOrder(Sach sach);
 }

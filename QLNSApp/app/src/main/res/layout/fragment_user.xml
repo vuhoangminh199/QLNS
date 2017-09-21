@@ -75,14 +75,16 @@
                 android:padding="10dp">
 
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:src="@drawable/change_account" />
 
                 <TextView
                     android:id="@+id/txtViewChangeAccount"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="9"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
@@ -105,45 +107,15 @@
                 android:padding="10dp">
 
                 <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/bookmark" />
-
-                <TextView
-                    android:id="@+id/txtViewYeuThich"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="5dp"
-                    android:text="Yêu thích"
-                    android:textColor="#595959"
-                    android:textSize="20dp" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#b3b3b3" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:src="@drawable/smartphone" />
 
                 <TextView
-                    android:id="@+id/txtViewAppVer"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="8"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
@@ -151,6 +123,16 @@
                     android:textColor="#595959"
                     android:textSize="20dp" />
 
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"
+                    android:text="Version 1.0"
+                    android:textColor="#595959" />
+
             </LinearLayout>
 
             <View
@@ -159,6 +141,7 @@
                 android:background="#b3b3b3" />
 
             <LinearLayout
+                android:id="@+id/layoutLogout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -166,14 +149,16 @@
                 android:padding="10dp">
 
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:src="@drawable/logout" />
 
                 <TextView
                     android:id="@+id/txtViewLogout"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="9"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"

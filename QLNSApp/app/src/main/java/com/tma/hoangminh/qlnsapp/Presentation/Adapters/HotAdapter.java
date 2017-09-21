@@ -1,21 +1,35 @@
 package com.tma.hoangminh.qlnsapp.Presentation.Adapters;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.tma.hoangminh.qlnsapp.Domain.Model.Sach;
+import com.tma.hoangminh.qlnsapp.Presentation.Activities.BookDetailActivity;
+import com.tma.hoangminh.qlnsapp.Presentation.Fragments.DrawerNavigationBar;
 import com.tma.hoangminh.qlnsapp.R;
 
-import java.util.ArrayList;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class HotAdapter extends RecyclerView.Adapter<HotAdapter.ViewHolder> {
 
-    private ArrayList<Integer> imageList;
+    private List<Sach> listBook;
+    private Context context;
+    private static final int key = 1;
 
-    public HotAdapter(ArrayList<Integer> imageList) {
-        this.imageList = imageList;
+    public HotAdapter(Context context, List<Sach> listBook) {
+        this.listBook = listBook;
+        this.context = context;
     }
 
     @Override
@@ -26,13 +40,33 @@ public class HotAdapter extends RecyclerView.Adapter<HotAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(HotAdapter.ViewHolder holder, int position) {
-        holder.myImage.setImageResource(imageList.get(position));
+    public void onBindViewHolder(HotAdapter.ViewHolder holder, final int position) {
+        Collections.sort(listBook, new Comparator<Sach>() {
+            @Override
+            public int compare(Sach sach, Sach t1) {
+                return Integer.compare(t1.getLuotmua(), sach.getLuotmua());
+            }
+        });
+        try {
+            URL url = new URL(DrawerNavigationBar.URL + "SACHes/GetSACHImage/" + listBook.get(position).getMasach());
+            Glide.with(context).fromUrl().asBitmap().load(url).centerCrop().into(holder.myImage);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        holder.myImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToDetail = new Intent(context, BookDetailActivity.class);
+                intentToDetail.putExtra("pos", position);
+                intentToDetail.putExtra("masach", listBook.get(position).getMasach());
+                ((Activity)context).startActivityForResult(intentToDetail, key);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return imageList.size();
+        return listBook.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

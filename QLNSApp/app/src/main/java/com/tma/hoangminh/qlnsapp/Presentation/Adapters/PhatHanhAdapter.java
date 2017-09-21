@@ -9,20 +9,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.tma.hoangminh.qlnsapp.Domain.Model.Sach;
 import com.tma.hoangminh.qlnsapp.Presentation.Activities.BookDetailActivity;
+import com.tma.hoangminh.qlnsapp.Presentation.Fragments.DrawerNavigationBar;
 import com.tma.hoangminh.qlnsapp.R;
 
-import java.util.ArrayList;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.List;
 
 public class PhatHanhAdapter extends RecyclerView.Adapter<PhatHanhAdapter.ViewHolder> {
 
-    private ArrayList<Integer> imageList;
+    private List<Sach> listBook;
     private int myPosition;
     private static final int key = 1;
     private Context myContext;
 
-    public PhatHanhAdapter(ArrayList<Integer> imageList) {
-        this.imageList = imageList;
+    public PhatHanhAdapter(List<Sach> listBook) {
+        this.listBook = listBook;
     }
 
     @Override
@@ -34,12 +39,18 @@ public class PhatHanhAdapter extends RecyclerView.Adapter<PhatHanhAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(PhatHanhAdapter.ViewHolder holder, final int position) {
-        holder.myImage.setImageResource(imageList.get(position));
+        try {
+            URL url = new URL(DrawerNavigationBar.URL + "SACHes/GetSACHImage/" + listBook.get(position).getMasach());
+            Glide.with(myContext).fromUrl().asBitmap().load(url).centerCrop().into(holder.myImage);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
         holder.myImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentToDetail = new Intent(myContext, BookDetailActivity.class);
                 intentToDetail.putExtra("pos",position);
+                intentToDetail.putExtra("masach", listBook.get(position).getMasach());
                 ((Activity)myContext).startActivityForResult(intentToDetail, key);
             }
         });
@@ -47,7 +58,7 @@ public class PhatHanhAdapter extends RecyclerView.Adapter<PhatHanhAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return imageList.size();
+        return listBook.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

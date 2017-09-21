@@ -29,11 +29,20 @@
             android:name=".Presentation.Activities.BookDetailActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".Presentation.Activities.BookGridAcitivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
             android:name=".Presentation.Activities.LoginResgiserActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Presentation.Activities.OrderBookActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <service
+            android:name=".Domain.Model.Service.UserService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".Domain.Model.Service.OrderService"
+            android:enabled="true"
+            android:exported="true" />
+
     </application>
 
 </manifest>
