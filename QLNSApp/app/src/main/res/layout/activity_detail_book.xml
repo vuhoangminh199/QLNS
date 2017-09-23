@@ -4,7 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <ProgressBar
+        android:id="@+id/progressbar_deitals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center_horizontal|center_vertical"></ProgressBar>
+
     <FrameLayout
+        android:id="@+id/layout_frame"
         android:layout_width="match_parent"
         android:layout_height="300dp">
 
@@ -69,6 +77,7 @@
     </FrameLayout>
 
     <ScrollView
+        android:id="@+id/scroll_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -83,7 +92,7 @@
                 android:id="@+id/title_book"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chuyen hay ne"
+                android:text=""
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18dp"
@@ -93,7 +102,7 @@
                 android:id="@+id/art_book"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="vu hoang minh"
+                android:text=""
                 android:textAlignment="center"
                 android:textColor="#919090" />
 
@@ -110,15 +119,15 @@
                     android:id="@+id/price_book"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1000 dong"
+                    android:text=""
                     android:textAlignment="center"
                     android:textColor="@android:color/holo_blue_light"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <Button
-                    android:layout_width="150dp"
                     android:id="@+id/btnorder"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:background="@drawable/custom_button_bgholoblue"
@@ -138,9 +147,7 @@
                 android:layout_marginRight="12dp"
                 android:layout_marginTop="10dp"
                 android:lineSpacingExtra="1dp"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                android:text=""
                 android:textColor="@android:color/black" />
         </LinearLayout>
     </ScrollView>

@@ -98,6 +98,8 @@ public class UserService extends Service {
             bufferedWriter.write(jsonObject.toString());
             bufferedWriter.flush();
 
+            outputStream.close();
+            bufferedWriter.close();
             if (connection.getResponseCode() == HttpURLConnection.HTTP_CREATED) {
                 return true;
             }

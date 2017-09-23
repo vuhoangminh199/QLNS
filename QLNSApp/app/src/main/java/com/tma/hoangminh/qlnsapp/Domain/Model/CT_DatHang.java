@@ -1,21 +1,12 @@
 package com.tma.hoangminh.qlnsapp.Domain.Model;
 
-import com.google.gson.annotations.SerializedName;
-
 public class CT_DatHang {
-    @SerializedName("madathang")
     String madathang;
-    @SerializedName("masach")
     String masach;
-    @SerializedName("timedel")
     String timedel;
-    @SerializedName("soluongdat")
     int soluongdat;
-    @SerializedName("dongia")
     int dongia;
-    @SerializedName("thanhtien")
     int thanhtien;
-    @SerializedName("delflag")
     int delflag;
 
     public CT_DatHang(){

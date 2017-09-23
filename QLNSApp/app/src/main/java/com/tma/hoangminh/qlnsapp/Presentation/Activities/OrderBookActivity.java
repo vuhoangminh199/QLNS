@@ -1,5 +1,6 @@
 package com.tma.hoangminh.qlnsapp.Presentation.Activities;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,7 +22,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.tma.hoangminh.qlnsapp.Domain.Model.CT_DatHang;
 import com.tma.hoangminh.qlnsapp.Domain.Model.DatHang;
-import com.tma.hoangminh.qlnsapp.Domain.Model.Sach;
 import com.tma.hoangminh.qlnsapp.Presentation.Fragments.DrawerNavigationBar;
 import com.tma.hoangminh.qlnsapp.Presentation.Presenters.OrderBookPresenter;
 import com.tma.hoangminh.qlnsapp.Presentation.Views.OrderBookView;
@@ -41,7 +41,7 @@ public class OrderBookActivity extends AppCompatActivity implements OrderBookVie
     private Intent myIntent;
     private int myNumber = 1;
     private String masach, title, art, makh;
-    private int soluongton, price, itemInListBook;
+    private int soluongton, price, itemInListDh;
     private OrderBookPresenter presenter;
     private SharedPreferences preferences;
     @Override
@@ -69,7 +69,7 @@ public class OrderBookActivity extends AppCompatActivity implements OrderBookVie
         editPhone = (EditText) findViewById(R.id.edit_phone);
         editAddress = (EditText) findViewById(R.id.edit_address);
         presenter = new OrderBookPresenter(OrderBookActivity.this);
-        presenter.SetUpListBook();
+        presenter.SetUpListDh();
         preferences = OrderBookActivity.this.getSharedPreferences("LOGIN", MODE_PRIVATE);
         makh = preferences.getString("MAKH", null);
         setSupportActionBar(toolbar);
@@ -122,17 +122,22 @@ public class OrderBookActivity extends AppCompatActivity implements OrderBookVie
         btnOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                long millis=System.currentTimeMillis();
-                long twoDay = millis + TimeUnit.HOURS.toMillis(1l) * 48;
-                java.sql.Date date=new java.sql.Date(millis);
-                java.sql.Date dateOrder=new java.sql.Date(twoDay);
-                DatHang datHang = new DatHang("DH"+(itemInListBook + 1), makh, editPhone.getText().toString(),
-                        editAddress.getText().toString(), date.toString(),
-                        dateOrder.toString(), myIntent.getIntExtra("giasach_order", 0) * myNumber, true);
+                if (makh == null || makh.equals("")){
+                    Toast.makeText(OrderBookActivity.this,"Bạn cần phải đăng nhập để đặt sách hihi", Toast.LENGTH_SHORT);
+                } else {
+                    long millis=System.currentTimeMillis();
+                    long twoDay = millis + TimeUnit.HOURS.toMillis(1l) * 48;
+                    java.sql.Date date=new java.sql.Date(millis);
+                    java.sql.Date dateOrder=new java.sql.Date(twoDay);
+                    DatHang datHang = new DatHang("DH"+(itemInListDh + 1), makh, editPhone.getText().toString(),
+                            editAddress.getText().toString(), date.toString(),
+                            dateOrder.toString(), myIntent.getIntExtra("giasach_order", 0) * myNumber, true);
 
-                CT_DatHang ct_datHang = new CT_DatHang(datHang.getMadathang(), masach,
-                        myNumber, price, myIntent.getIntExtra("giasach_order", 0) * myNumber, 0, null);
-                presenter.onPressOrder(datHang, ct_datHang);
+                    CT_DatHang ct_datHang = new CT_DatHang(datHang.getMadathang(), masach,
+                            myNumber, price, myIntent.getIntExtra("giasach_order", 0) * myNumber, 0, null);
+                    presenter.onPressOrder(datHang, ct_datHang);
+                }
+
             }
         });
 
@@ -201,6 +206,11 @@ public class OrderBookActivity extends AppCompatActivity implements OrderBookVie
     }
 
     @Override
+    public Context getContext() {
+        return this;
+    }
+
+    @Override
     public String getName() {
         return editName.getText().toString();
     }
@@ -234,8 +244,8 @@ public class OrderBookActivity extends AppCompatActivity implements OrderBookVie
     }
 
     @Override
-    public void SetUpListBook(List<Sach> listBook) {
-        itemInListBook = listBook.size();
+    public void SetUpListDh(List<DatHang> listDh) {
+        itemInListDh = listDh.size();
     }
 
     @Override

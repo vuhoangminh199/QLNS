@@ -1,15 +1,18 @@
 package com.tma.hoangminh.qlnsapp.Presentation.Views;
 
-import com.tma.hoangminh.qlnsapp.Domain.Model.Sach;
+import android.content.Context;
+
+import com.tma.hoangminh.qlnsapp.Domain.Model.DatHang;
 
 import java.util.List;
 
 public interface OrderBookView {
+    Context getContext();
     String getName();
     String getPhone();
     String getAddress();
     void navigatorToSuccess();
-    void SetUpListBook(List<Sach> listBook);
+    void SetUpListDh(List<DatHang> listDh);
 
     void showErrorAddress(String mes);
     void hideErrorAddress();

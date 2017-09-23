@@ -80,11 +80,11 @@ public class OrderService extends Service {
     }
 
     public Boolean PostOrderDetail(CT_DatHang ctDatHang) {
-        HttpURLConnection connection = null;
         try {
             URL url = new URL(DrawerNavigationBar.URL + "CT_DATHANGs/PostCT_DATHANG");
 
-            connection = (HttpURLConnection) url.openConnection();
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/json");
             connection.setRequestProperty("charset", "utf-8");
@@ -98,7 +98,7 @@ public class OrderService extends Service {
             jsonObject.put("dongia", ctDatHang.getDongia());
             jsonObject.put("thanhtien", ctDatHang.getThanhtien());
             jsonObject.put("delflag", ctDatHang.getDelflag());
-            jsonObject.put("timedel", ctDatHang.getTimedel());
+
 
             OutputStream outputStream = connection.getOutputStream();
             BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream));
@@ -116,16 +116,15 @@ public class OrderService extends Service {
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
-            connection.disconnect();
         } catch (IOException e) {
-            connection.disconnect();
             e.printStackTrace();
 
         } catch (JSONException e) {
             e.printStackTrace();
-            connection.disconnect();
         }
         return false;
     }
+
+
 
 }

@@ -37,19 +37,8 @@
                         android:layout_height="fill_parent"
                         android:layout_gravity="center"
                         android:adjustViewBounds="true"
-                        android:background="@android:color/black"
-                        android:scaleType="centerCrop" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center"
-                        android:text="First Child"
-                        android:textColor="@android:color/white"
-                        android:textSize="18dp"
-                        android:textStyle="bold" />
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/image5" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -61,18 +50,8 @@
                         android:layout_height="fill_parent"
                         android:layout_gravity="center"
                         android:adjustViewBounds="true"
-                        android:background="@android:color/darker_gray"
-                        android:scaleType="centerCrop" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center"
-                        android:text="Second Child"
-                        android:textSize="18dp"
-                        android:textStyle="bold" />
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/image24" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -84,18 +63,8 @@
                         android:layout_height="fill_parent"
                         android:layout_gravity="center"
                         android:adjustViewBounds="true"
-                        android:background="@android:color/holo_green_light"
-                        android:scaleType="centerCrop" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:gravity="center"
-                        android:text="Third Child"
-                        android:textSize="18dp"
-                        android:textStyle="bold" />
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/image28" />
                 </RelativeLayout>
             </ViewFlipper>
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -110,7 +79,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusableInTouchMode="true"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="visible">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -125,6 +95,15 @@
                     android:padding="10dp"
                     android:text="TỦ SÁCH CHỌN LỌC"
                     android:textSize="15sp" />
+
+                <ProgressBar
+                    android:id="@+id/progressbar_chonloc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:visibility="gone">
+
+                </ProgressBar>
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler_view"
@@ -149,6 +128,15 @@
                     android:text="MỚI PHÁT HÀNH"
                     android:textSize="15sp" />
 
+                <ProgressBar
+                    android:id="@+id/progressbar_phathanh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:visibility="gone">
+
+                </ProgressBar>
+
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler_view_phathanh"
                     android:layout_width="match_parent"
@@ -171,6 +159,13 @@
                     android:text="SÁCH HOT HIỆN NAY"
                     android:textSize="15sp" />
 
+                <ProgressBar
+                    android:id="@+id/progressbar_hot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:visibility="gone"></ProgressBar>
+
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler_view_hot"
                     android:layout_width="match_parent"
@@ -191,6 +186,13 @@
                     android:padding="10dp"
                     android:text="CÓ THỂ BẠN THÍCH"
                     android:textSize="15sp" />
+
+                <ProgressBar
+                    android:id="@+id/progressbar_thich"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:visibility="gone"></ProgressBar>
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler_view_thich"

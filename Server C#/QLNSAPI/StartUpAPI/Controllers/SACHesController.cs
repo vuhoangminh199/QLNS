@@ -26,7 +26,7 @@ namespace StartUpAPI.Controllers
         // GET: api/SACHes
         public IQueryable<SACH> GetSACHes()
         {
-            return db.SACHes; 
+            return db.SACHes.Where(s=>s.delflag == 0); 
         }
 
         // GET: api/GetSACHesHot

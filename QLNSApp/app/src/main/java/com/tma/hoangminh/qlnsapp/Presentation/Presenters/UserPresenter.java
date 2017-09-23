@@ -4,10 +4,24 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.tma.hoangminh.qlnsapp.Domain.Model.KhachHang;
 import com.tma.hoangminh.qlnsapp.Domain.Model.Mapping_Tool.UserMapping;
 import com.tma.hoangminh.qlnsapp.Domain.Model.Service.UserService;
+import com.tma.hoangminh.qlnsapp.Presentation.Fragments.DrawerNavigationBar;
 import com.tma.hoangminh.qlnsapp.Presentation.Views.UserView;
+
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserPresenter {
     private UserView view;
@@ -103,26 +117,60 @@ public class UserPresenter {
         // boolean isLogin = service.login(phone,pass);
         if (!checkIsValid) {
             final KhachHang user = new KhachHang("123", name, "ABC", phoneNumber, "123", password);
-            new AsyncTask<Void, Void, Boolean>() {
+//            new AsyncTask<Void, Void, Boolean>() {
+//                @Override
+//                protected Boolean doInBackground(Void... params) {
+//                    return new UserService().PostUser(user);
+//                }
+//
+//                @Override
+//                protected void onPostExecute(Boolean s) {
+//                    super.onPostExecute(s);
+//                    if(s){
+//                        Toast.makeText(((AppCompatActivity)view),"Dang ki thanh cong",Toast.LENGTH_SHORT).show();
+//                        new UserMapping().CommitInternalData(user, (AppCompatActivity)view);
+//                        view.navigationRegisterSuccess(user.getTenkh());
+//                    } else {
+//                        Toast.makeText(((AppCompatActivity)view),"Dang ki that bai vui long dang ki lai",Toast.LENGTH_SHORT).show();
+//                        view.showRegisterFail();
+//                    }
+//                }
+//            }.execute();
+            RequestQueue queue = Volley.newRequestQueue((AppCompatActivity)view);
+            String url = DrawerNavigationBar.URL + "KHACHHANGs/PostKHACHHANG";
+            final HashMap<String, String> params = new HashMap<>();
+            params.put("makh", user.getMakh());
+            params.put("tenkh", user.getTenkh());
+            params.put("diachi", user.getDiachi());
+            params.put("sodienthoai", user.getSodienthoai());
+            params.put("email", user.getEmail());
+            params.put("matkhaukh", user.getMatkhaukh());
+            JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.POST, url,
+                    new JSONObject(params), new Response.Listener<JSONObject>() {
                 @Override
-                protected Boolean doInBackground(Void... params) {
-                    return new UserService().PostUser(user);
+                public void onResponse(JSONObject response) {
+                    Toast.makeText(((AppCompatActivity)view),"Dang ki thanh cong",Toast.LENGTH_SHORT).show();
+                    new UserMapping().CommitInternalData(user, (AppCompatActivity)view);
+                    view.navigationRegisterSuccess(user.getTenkh());
                 }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(((AppCompatActivity)view),"Dang ki that bai vui long dang ki lai",Toast.LENGTH_SHORT).show();
+                    view.showRegisterFail();
+                }
+            }) {
 
                 @Override
-                protected void onPostExecute(Boolean s) {
-                    super.onPostExecute(s);
-                    if(s){
-                        Toast.makeText(((AppCompatActivity)view),"Dang ki thanh cong",Toast.LENGTH_SHORT).show();
-                        new UserMapping().CommitInternalData(user, (AppCompatActivity)view);
-                        view.navigationRegisterSuccess(user.getTenkh());
-                    } else {
-                        Toast.makeText(((AppCompatActivity)view),"Dang ki that bai vui long dang ki lai",Toast.LENGTH_SHORT).show();
-                        view.showRegisterFail();
-                    }
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Map<String,String> params = new HashMap<String, String>();
+                    params.put("Content-Type","application/json; charset=utf-8");
+                    return params;
                 }
-            }.execute();
 
+            };
+            VolleyLog.DEBUG = true;
+            queue.add(stringRequest);
         } else {
             view.showRegisterFail();
         }

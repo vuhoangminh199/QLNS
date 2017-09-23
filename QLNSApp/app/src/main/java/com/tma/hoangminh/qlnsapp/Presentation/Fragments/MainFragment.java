@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
+import android.widget.ProgressBar;
 import android.widget.ViewFlipper;
 
 import com.tma.hoangminh.qlnsapp.Domain.Model.Sach;
@@ -19,7 +20,6 @@ import com.tma.hoangminh.qlnsapp.Presentation.Presenters.NewsPresenter;
 import com.tma.hoangminh.qlnsapp.Presentation.Views.NewsView;
 import com.tma.hoangminh.qlnsapp.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainFragment extends android.support.v4.app.Fragment implements NewsView {
@@ -31,12 +31,13 @@ public class MainFragment extends android.support.v4.app.Fragment implements New
     private PhatHanhAdapter myAdapterPhatHanh;
     private HotAdapter myAdapterHot;
     private ThichAdapter myAdapterThich;
-    private ArrayList<Integer> imageList;
     private NewsPresenter presenter;
+    private ProgressBar progressBarChonLoc, progressBarHot, progressBarPhatHanh, progressBarThich;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+        Init();
     }
 
     @Override
@@ -48,20 +49,28 @@ public class MainFragment extends android.support.v4.app.Fragment implements New
         myRecyclerViewPhatHanh =(RecyclerView) view.findViewById(R.id.recycler_view_phathanh);
         myRecyclerViewHot = view.findViewById(R.id.recycler_view_hot);
         myRecyclerViewThich = view.findViewById(R.id.recycler_view_thich);
+        progressBarChonLoc = view.findViewById(R.id.progressbar_chonloc);
+        progressBarHot = view.findViewById(R.id.progressbar_hot);
+        progressBarPhatHanh = view.findViewById(R.id.progressbar_phathanh);
+        progressBarThich = view.findViewById(R.id.progressbar_thich);
+        progressBarChonLoc.setVisibility(View.VISIBLE);
+        progressBarPhatHanh.setVisibility(View.VISIBLE);
+        progressBarHot.setVisibility(View.VISIBLE);
+        progressBarThich.setVisibility(View.VISIBLE);
+
+        myRecyclerViewChonLoc.setVisibility(View.GONE);
+        myRecyclerViewPhatHanh.setVisibility(View.GONE);
+        myRecyclerViewHot.setVisibility(View.GONE);
+        myRecyclerViewThich.setVisibility(View.GONE);
+
+
         SetUpFlipper();
-        Init();
+
         SetUpAdapter();
         return view;
     }
 
     public void Init(){
-        imageList = new ArrayList<Integer>();
-        imageList.add(R.drawable.ic_booksplash);
-        imageList.add(R.drawable.ic_booksplash);
-        imageList.add(R.drawable.ic_booksplash);
-        imageList.add(R.drawable.ic_booksplash);
-        imageList.add(R.drawable.ic_booksplash);
-        imageList.add(R.drawable.ic_booksplash);
         presenter = new NewsPresenter(MainFragment.this);
         presenter.SetUpListBook();
         presenter.SetUpListBookHot();
@@ -114,11 +123,19 @@ public class MainFragment extends android.support.v4.app.Fragment implements New
         myRecyclerViewThich.setAdapter(myAdapterThich);
         myAdapterHot = new HotAdapter(getContext(), listBook);
         myRecyclerViewHot.setAdapter(myAdapterHot);
+        progressBarChonLoc.setVisibility(View.GONE);
+        progressBarHot.setVisibility(View.GONE);
+        progressBarThich.setVisibility(View.GONE);
+        myRecyclerViewChonLoc.setVisibility(View.VISIBLE);
+        myRecyclerViewHot.setVisibility(View.VISIBLE);
+        myRecyclerViewThich.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void SetUpListBookHot(List<Sach> listBook) {
         myAdapterPhatHanh = new PhatHanhAdapter(listBook);
         myRecyclerViewPhatHanh.setAdapter(myAdapterPhatHanh);
+        myRecyclerViewPhatHanh.setVisibility(View.VISIBLE);
+        progressBarPhatHanh.setVisibility(View.GONE);
     }
 }
