@@ -9,13 +9,6 @@ namespace StartUpAPI.Models
     [Table("NHANVIEN")]
     public partial class NHANVIEN
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public NHANVIEN()
-        {
-            HOADONs = new HashSet<HOADON>();
-            PHIEUNHAPs = new HashSet<PHIEUNHAP>();
-        }
-
         [Key]
         [StringLength(8)]
         public string manv { get; set; }
@@ -48,13 +41,5 @@ namespace StartUpAPI.Models
         public string maquyen { get; set; }
 
         public bool tinhtrang { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HOADON> HOADONs { get; set; }
-
-        public virtual QUYEN QUYEN { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PHIEUNHAP> PHIEUNHAPs { get; set; }
     }
 }

@@ -39,9 +39,5 @@ namespace StartUpAPI.Models
         public int delflag { get; set; }
 
         public DateTime? timedel { get; set; }
-
-        public virtual HOADON HOADON { get; set; }
-
-        public virtual SACH SACH { get; set; }
     }
 }

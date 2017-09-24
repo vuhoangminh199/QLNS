@@ -34,6 +34,11 @@
         <activity
             android:name=".Presentation.Activities.OrderBookActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Presentation.Activities.TypeBookActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <!-- Service here -->
         <service
             android:name=".Domain.Model.Service.UserService"
             android:enabled="true"

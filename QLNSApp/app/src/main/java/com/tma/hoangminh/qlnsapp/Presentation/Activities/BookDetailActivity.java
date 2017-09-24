@@ -32,7 +32,7 @@ public class BookDetailActivity extends AppCompatActivity implements BookDetailV
     private int mypos;
     private ImageView myImageBack, myImageBG, myImageDetail;
     private BookDetailPresenter presenter;
-    private TextView titleBar,artBar,titleBook,artBook,priceBook,desBook;
+    private TextView titleBar, artBar, titleBook, artBook, priceBook, desBook;
     private String myMasach;
     private Button btnOrder;
     private Sach mySach;
@@ -50,7 +50,7 @@ public class BookDetailActivity extends AppCompatActivity implements BookDetailV
         Listener();
     }
 
-    public void Init(){
+    public void Init() {
         presenter = new BookDetailPresenter(this);
         myImageBG = (ImageView) findViewById(R.id.image_bg);
         titleBar = (TextView) findViewById(R.id.title_bar);
@@ -75,7 +75,7 @@ public class BookDetailActivity extends AppCompatActivity implements BookDetailV
         name = preferences.getString("TENKH", null);
     }
 
-    public void Listener(){
+    public void Listener() {
         myImageBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,15 +98,15 @@ public class BookDetailActivity extends AppCompatActivity implements BookDetailV
 
     @Override
     public void SetUpListBook(List<Sach> listBook) {
-        for (int i = 0; i<listBook.size();i++) {
-            if(listBook.get(i).getMasach().equals(myMasach)){
+        for (int i = 0; i < listBook.size(); i++) {
+            if (listBook.get(i).getMasach().equals(myMasach)) {
                 mySach = listBook.get(i);
                 titleBar.setText(listBook.get(i).getTensach());
                 artBar.setText(listBook.get(i).getTacgia());
                 titleBook.setText(listBook.get(i).getTensach());
                 artBook.setText(listBook.get(i).getTacgia());
                 desBook.setText(listBook.get(i).getMota());
-                priceBook.setText(listBook.get(i).getDongiaban()+ " Đ");
+                priceBook.setText(listBook.get(i).getDongiaban() + " Đ");
                 try {
                     URL url = new URL(DrawerNavigationBar.URL + "SACHes/GetSACHImage/" + myMasach);
                     Glide.with(this).fromUrl().asBitmap().load(url).centerCrop().into(myImageBG);
@@ -123,10 +123,10 @@ public class BookDetailActivity extends AppCompatActivity implements BookDetailV
 
     @Override
     public void navigateToOrder(Sach sach) {
-        if(sach.getSoluongton() == 0 ){
-            Toast.makeText(BookDetailActivity.this, "Sách đã hết vui lòng quay lại sau", Toast.LENGTH_LONG ).show();
-        } else if (name == null || name.equals("")){
-            Toast.makeText(BookDetailActivity.this, "Bạn cần phải đăng nhập để đặt sách hihi", Toast.LENGTH_LONG ).show();
+        if (sach.getSoluongton() == 0) {
+            Toast.makeText(BookDetailActivity.this, "Sách đã hết vui lòng quay lại sau", Toast.LENGTH_LONG).show();
+        } else if (name == null || name.equals("")) {
+            Toast.makeText(BookDetailActivity.this, "Bạn cần phải đăng nhập để đặt sách hihi", Toast.LENGTH_LONG).show();
         } else {
             Intent intentToOrder = new Intent(BookDetailActivity.this, OrderBookActivity.class);
             ActivityOptions options =
@@ -145,7 +145,7 @@ public class BookDetailActivity extends AppCompatActivity implements BookDetailV
         switch (item.getItemId()) {
             case android.R.id.home:
                 this.finish();
-                overridePendingTransition(R.anim.bottom_from_top,R.anim.top_from_bottom);
+                overridePendingTransition(R.anim.bottom_from_top, R.anim.top_from_bottom);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

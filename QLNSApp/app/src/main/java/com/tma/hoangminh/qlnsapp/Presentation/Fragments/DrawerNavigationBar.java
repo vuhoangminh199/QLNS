@@ -1,5 +1,6 @@
 package com.tma.hoangminh.qlnsapp.Presentation.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -13,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.tma.hoangminh.qlnsapp.Presentation.Activities.TypeBookActivity;
 import com.tma.hoangminh.qlnsapp.R;
 
 import static com.tma.hoangminh.qlnsapp.R.drawable.search_uncheck;
@@ -24,7 +26,7 @@ public class DrawerNavigationBar extends AppCompatActivity implements Navigation
     private NewsFragment fourFragment;
     private SearchFragment searchFragment;
     private BottomNavigationView bottomNavigationView;
-    public static String URL = "http://192.168.1.5:1909/api/";
+    public static String URL = "http://192.168.0.110:1909/api/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,7 +92,7 @@ public class DrawerNavigationBar extends AppCompatActivity implements Navigation
                     }
                 });
 
-        //Manually displaying the first fragment - one time only
+
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_layout, mainFragment);
         transaction.commit();
@@ -128,31 +130,37 @@ public class DrawerNavigationBar extends AppCompatActivity implements Navigation
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+
         int id = item.getItemId();
 
-        if (id == R.id.nav_cn) {
-            // Handle the camera action
-        } else if (id == R.id.nav_kn) {
-
-        } else if (id == R.id.nav_tn) {
-
-        } else if (id == R.id.nav_tt) {
-
-        } else if (id == R.id.nav_vh) {
-
-        } else if (id == R.id.nav_tml) {
-
-        } else if (id == R.id.nav_truyentranh) {
-
-        } else if (id == R.id.nav_snv) {
-
-        } else if (id == R.id.nav_vhm) {
-
+        if (id == R.id.nav_haihuoc) {
+            IntetnToType("TL01");
+        } else if (id == R.id.nav_thieunhi) {
+            IntetnToType("TL02");
+        } else if (id == R.id.nav_langman) {
+            IntetnToType("TL03");
+        } else if (id == R.id.nav_phieuluu) {
+            IntetnToType("TL04");
+        } else if (id == R.id.nav_chuyennganh) {
+            IntetnToType("TL05");
+        } else if (id == R.id.nav_kinhdi) {
+            IntetnToType("TL06");
+        } else if (id == R.id.nav_congnghe) {
+            IntetnToType("TL07");
+        } else if (id == R.id.nav_nhanvan) {
+            IntetnToType("TL08");
+        } else if (id == R.id.nav_tuoimoilon) {
+            IntetnToType("TL09");
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void IntetnToType(String idtype){
+        Intent intent = new Intent(DrawerNavigationBar.this, TypeBookActivity.class);
+        intent.putExtra("matl", idtype);
+        startActivity(intent);
     }
 }

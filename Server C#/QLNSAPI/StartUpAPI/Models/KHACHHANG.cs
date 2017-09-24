@@ -9,13 +9,6 @@ namespace StartUpAPI.Models
     [Table("KHACHHANG")]
     public partial class KHACHHANG
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public KHACHHANG()
-        {
-            DATHANGs = new HashSet<DATHANG>();
-            HOADONs = new HashSet<HOADON>();
-        }
-
         [Key]
         [StringLength(8)]
         public string makh { get; set; }
@@ -39,11 +32,5 @@ namespace StartUpAPI.Models
         [Required]
         [StringLength(50)]
         public string matkhaukh { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DATHANG> DATHANGs { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HOADON> HOADONs { get; set; }
     }
 }

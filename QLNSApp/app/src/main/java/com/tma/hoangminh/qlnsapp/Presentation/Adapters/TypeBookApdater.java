@@ -17,13 +17,13 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-public class SearchListAdapter extends BaseAdapter{
+public class TypeBookApdater extends BaseAdapter {
 
     private Context context;
     private List<Sach> bookList;
     private LayoutInflater inflater;
 
-    public SearchListAdapter(Context context, List<Sach> bookList) {
+    public TypeBookApdater(Context context, List<Sach> bookList) {
         this.context = context;
         this.bookList = bookList;
         inflater = (LayoutInflater.from(context));
@@ -46,11 +46,10 @@ public class SearchListAdapter extends BaseAdapter{
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        view = inflater.inflate(R.layout.item_search_list, null);
-        ImageView imageBook = (ImageView) view.findViewById(R.id.imageBook);
-        TextView bookTitle = (TextView) view.findViewById(R.id.bookTitle);
-        TextView bookArt = (TextView) view.findViewById(R.id.bookArt);
-        TextView bookprovide = (TextView) view.findViewById(R.id.bookProvide);
+        view = inflater.inflate(R.layout.item_row_news, null);
+        ImageView imageBook = (ImageView) view.findViewById(R.id.image_news);
+        TextView bookTitle = (TextView) view.findViewById(R.id.title_news);
+        TextView bookDes = (TextView) view.findViewById(R.id.des_mes);
         try {
             URL url = new URL(DrawerNavigationBar.URL + "SACHes/GetSACHImage/" + bookList.get(i).getMasach());
             Glide.with(context).fromUrl().asBitmap().load(url).centerCrop().into(imageBook);
@@ -58,8 +57,7 @@ public class SearchListAdapter extends BaseAdapter{
             e.printStackTrace();
         }
         bookTitle.setText(bookList.get(i).getTensach());
-        bookArt.setText(bookList.get(i).getTacgia());
-        bookprovide.setText(bookList.get(i).getNhaxuatban());
+        bookDes.setText(bookList.get(i).getMota());
         return view;
     }
 }

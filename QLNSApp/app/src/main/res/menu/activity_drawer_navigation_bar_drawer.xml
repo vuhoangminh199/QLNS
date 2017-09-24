@@ -3,50 +3,50 @@
 
     <group android:checkableBehavior="none">
         <item
-            android:id="@+id/nav_cn"
-            android:title=" Sách Chuyên Ngành"
+            android:id="@+id/nav_haihuoc"
+            android:title=" Sách Hài Hước"
             />
     </group>
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_kn"
-            android:title=" Sách Kỹ Năng" />
-    </group>
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_tn"
+            android:id="@+id/nav_thieunhi"
             android:title=" Sách Thiếu Nhi" />
     </group>
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_tt"
-            android:title=" Sách Thường Thức" />
+            android:id="@+id/nav_langman"
+            android:title=" Sách Lãng Mạn" />
     </group>
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_vh"
-            android:title=" Sách Văn Hóa" />
+            android:id="@+id/nav_phieuluu"
+            android:title=" Sách Phiêu Lưu" />
     </group>
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_tml"
+            android:id="@+id/nav_chuyennganh"
+            android:title=" Sách Chuyên Ngành" />
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_kinhdi"
+            android:title=" Sách Kinh Dị" />
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_congnghe"
+            android:title=" Sách Công Nghệ" />
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_nhanvan"
+            android:title=" Sách Nhân Văn" />
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_tuoimoilon"
             android:title=" Sách Tuổi Mới Lớn" />
-    </group>
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_truyentranh"
-            android:title=" Sách Truyện Tranh" />
-    </group>
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_snv"
-            android:title=" Sách Ngoại Văn" />
-    </group>
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_vhm"
-            android:title=" Văn Học Mạng" />
     </group>
 
 </menu>

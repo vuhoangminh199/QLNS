@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.tma.hoangminh.qlnsapp.Domain.Model.Sach;
@@ -61,12 +60,6 @@ public class NewsAdapter  extends BaseAdapter {
         //imageBook.setImageResource(bookList.get(i).getAnhbia());
         bookTitle.setText(bookList.get(i).getTensach());
         bookDes.setText(bookList.get(i).getMota());
-        labelMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(view.getContext(),"Bam duoc More",Toast.LENGTH_SHORT).show();
-            }
-        });
         return view;
     }
 }
