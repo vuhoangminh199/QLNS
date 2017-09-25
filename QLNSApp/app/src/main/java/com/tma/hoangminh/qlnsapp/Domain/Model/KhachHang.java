@@ -3,7 +3,7 @@ package com.tma.hoangminh.qlnsapp.Domain.Model;
 public class KhachHang {
     String makh, tenkh, diachi, sodienthoai, email, matkhaukh;
 
-    public KhachHang(){
+    public KhachHang() {
 
     }
 

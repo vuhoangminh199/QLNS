@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderMapping {
-    public List<DatHang> DatHang(JSONArray arrayDathang){
+    public List<DatHang> DatHang(JSONArray arrayDathang) {
         List<DatHang> datHangs = new ArrayList<>();
         String madathang, makh, sdt, diachi, ngaydat, ngaygiao;
         int tongdonhang;

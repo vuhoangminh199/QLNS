@@ -4,8 +4,7 @@
     <group android:checkableBehavior="none">
         <item
             android:id="@+id/nav_haihuoc"
-            android:title=" Sách Hài Hước"
-            />
+            android:title=" Sách Hài Hước" />
     </group>
 
     <group android:checkableBehavior="single">

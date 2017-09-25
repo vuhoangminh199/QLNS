@@ -9,7 +9,7 @@ public class CT_DatHang {
     int thanhtien;
     int delflag;
 
-    public CT_DatHang(){
+    public CT_DatHang() {
 
     }
 

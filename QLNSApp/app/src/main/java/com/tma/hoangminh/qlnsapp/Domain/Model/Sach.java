@@ -5,9 +5,10 @@ public class Sach {
     int dongiaban, luotmua, khuyenmai, soluongton, delflag;
     Boolean tinhtrang;
 
-    public  Sach(){
+    public Sach() {
 
     }
+
     public Sach(String masach, String tensach, String matheloai, String anhbia, String mota, String nhaxuatban, String tacgia, String ngayxuatban, int dongiaban, int luotmua, int khuyenmai, int soluongton, int delflag, Boolean tinhtrang) {
         this.masach = masach;
         this.tensach = tensach;

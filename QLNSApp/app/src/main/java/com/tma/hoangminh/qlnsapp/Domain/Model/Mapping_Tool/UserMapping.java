@@ -9,11 +9,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class UserMapping {
-    public  KhachHang ParseUser(String user) {
+    public KhachHang ParseUser(String user) {
         KhachHang user1 = null;
         try {
             String makh, tenkh, diachi, sodienthoai, email, matkhaukh;
-            if(user != null) {
+            if (user != null) {
                 JSONObject object = new JSONObject(user);
                 makh = object.getString("makh");
                 tenkh = object.getString("tenkh");
@@ -31,7 +31,7 @@ public class UserMapping {
         return user1;
     }
 
-    public void CommitInternalData(KhachHang khachHang, Context context){
+    public void CommitInternalData(KhachHang khachHang, Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("LOGIN", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("LOGGED", true);
@@ -44,7 +44,7 @@ public class UserMapping {
         editor.commit();
     }
 
-    public void CommitNullData(Context context){
+    public void CommitNullData(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("LOGIN", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("LOGGED", false);

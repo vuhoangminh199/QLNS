@@ -123,6 +123,7 @@
                     android:textSize="15dp" />
 
             </android.support.design.widget.TextInputLayout>
+
             <TextView
                 android:id="@+id/name_error"
                 android:layout_width="340dp"

@@ -92,7 +92,7 @@ public class OrderService extends Service {
 
             JSONObject jsonObject = new JSONObject();
 
-            jsonObject.put("madathang",ctDatHang.getMadathang());
+            jsonObject.put("madathang", ctDatHang.getMadathang());
             jsonObject.put("masach", ctDatHang.getMasach());
             jsonObject.put("soluongdat", ctDatHang.getSoluongdat());
             jsonObject.put("dongia", ctDatHang.getDongia());
@@ -124,7 +124,6 @@ public class OrderService extends Service {
         }
         return false;
     }
-
 
 
 }

@@ -21,12 +21,12 @@ import static com.tma.hoangminh.qlnsapp.R.drawable.search_uncheck;
 
 public class DrawerNavigationBar extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private MainFragment mainFragment;
-    private TwoFragment twoFragment;
+    private BxhFragment bxhFragment;
     private UserFragment userFragment;
     private NewsFragment fourFragment;
     private SearchFragment searchFragment;
     private BottomNavigationView bottomNavigationView;
-    public static String URL = "http://192.168.0.110:1909/api/";
+    public static String URL = "http://172.19.0.32:1909/api/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +51,7 @@ public class DrawerNavigationBar extends AppCompatActivity implements Navigation
                                 menu.findItem(R.id.action_item5).setIcon(R.drawable.user_unchecked);
                                 break;
                             case R.id.action_item2:
-                                selectedFragment = twoFragment;
+                                selectedFragment = bxhFragment;
                                 item.setIcon(R.drawable.bxh);
                                 menu.findItem(R.id.action_item1).setIcon(R.drawable.booksplash_uncheck);
                                 menu.findItem(R.id.action_item3).setIcon(R.drawable.search_uncheck);
@@ -109,7 +109,7 @@ public class DrawerNavigationBar extends AppCompatActivity implements Navigation
 
     public void Init(){
         mainFragment = new MainFragment();
-        twoFragment = new TwoFragment();
+        bxhFragment = new BxhFragment();
         userFragment = new UserFragment();
         fourFragment = new NewsFragment();
         searchFragment = new SearchFragment();
