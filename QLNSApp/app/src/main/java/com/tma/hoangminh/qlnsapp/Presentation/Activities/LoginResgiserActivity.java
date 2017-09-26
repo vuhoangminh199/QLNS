@@ -2,7 +2,6 @@ package com.tma.hoangminh.qlnsapp.Presentation.Activities;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -93,13 +92,7 @@ public class LoginResgiserActivity extends AppCompatActivity implements UserView
             @Override
             public void onClick(View view) {
                 progressDialog.show();
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        presenter.onPressLogin();
-                    }
-                }, 2500);
+                presenter.onPressLogin();
             }
         });
 
@@ -192,13 +185,7 @@ public class LoginResgiserActivity extends AppCompatActivity implements UserView
             @Override
             public void onClick(View view) {
                 progressDialog.show();
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        presenter.onPressRegister();
-                    }
-                }, 2500);
+                presenter.onPressRegister();
 
             }
         });

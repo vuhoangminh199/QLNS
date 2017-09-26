@@ -75,9 +75,12 @@ public class SearchPresenter {
                 super.onPostExecute(s);
                 listBook = new ArrayList<Sach>();
                 listBook = new BookMapping().ParseBook(s);
-                if (listBook.size() > 0) {
-                    view.SetUpListBookHot(listBook);
+                if (listBook != null) {
+                    if (listBook.size() > 0) {
+                        view.SetUpListBookHot(listBook);
+                    }
                 }
+
             }
         }.execute();
     }

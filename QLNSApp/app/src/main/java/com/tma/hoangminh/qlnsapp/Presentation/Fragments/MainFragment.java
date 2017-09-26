@@ -33,6 +33,7 @@ public class MainFragment extends android.support.v4.app.Fragment implements New
     private ThichAdapter myAdapterThich;
     private NewsPresenter presenter;
     private ProgressBar progressBarChonLoc, progressBarHot, progressBarPhatHanh, progressBarThich;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

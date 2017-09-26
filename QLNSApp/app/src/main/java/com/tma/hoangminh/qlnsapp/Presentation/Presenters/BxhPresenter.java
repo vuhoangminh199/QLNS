@@ -14,11 +14,12 @@ public class BxhPresenter {
     private BxhView view;
     private List<Sach> listBook;
     private List<Sach> bxhBook;
+
     public BxhPresenter(BxhView view) {
         this.view = view;
     }
 
-    public void SetUpListBookHot(){
+    public void SetUpListBookHot() {
 
         new AsyncTask<Void, Void, String>() {
             @Override
@@ -30,17 +31,20 @@ public class BxhPresenter {
             protected String doInBackground(Void... params) {
                 return new BookService().getListBookHot();
             }
+
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 listBook = new ArrayList<Sach>();
                 bxhBook = new ArrayList<Sach>();
                 listBook = new BookMapping().ParseBook(s);
-                if (listBook.size() > 0 ) {
-                    for(int i=0; i < 10 ;i++){
-                        bxhBook.add(listBook.get(i));
+                if (listBook != null){
+                    if (listBook.size() > 0) {
+                        for (int i = 0; i < 10; i++) {
+                            bxhBook.add(listBook.get(i));
+                        }
+                        view.SetUpListBook(bxhBook);
                     }
-                    view.SetUpListBook(bxhBook);
                 }
             }
         }.execute();

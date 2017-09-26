@@ -48,7 +48,6 @@ public class UserPresenter {
             return;
         }
 
-        // boolean isLogin = service.login(phone,pass);
         new AsyncTask<Void, Void, String>() {
             @Override
             protected void onPreExecute() {
@@ -114,28 +113,9 @@ public class UserPresenter {
             view.showErrorRPassword("Mật khẩu không ít hơn 6 kí tự");
             return;
         }
-        // boolean isLogin = service.login(phone,pass);
         if (!checkIsValid) {
             final KhachHang user = new KhachHang("123", name, "ABC", phoneNumber, "123", password);
-//            new AsyncTask<Void, Void, Boolean>() {
-//                @Override
-//                protected Boolean doInBackground(Void... params) {
-//                    return new UserService().PostUser(user);
-//                }
-//
-//                @Override
-//                protected void onPostExecute(Boolean s) {
-//                    super.onPostExecute(s);
-//                    if(s){
-//                        Toast.makeText(((AppCompatActivity)view),"Dang ki thanh cong",Toast.LENGTH_SHORT).show();
-//                        new UserMapping().CommitInternalData(user, (AppCompatActivity)view);
-//                        view.navigationRegisterSuccess(user.getTenkh());
-//                    } else {
-//                        Toast.makeText(((AppCompatActivity)view),"Dang ki that bai vui long dang ki lai",Toast.LENGTH_SHORT).show();
-//                        view.showRegisterFail();
-//                    }
-//                }
-//            }.execute();
+
             RequestQueue queue = Volley.newRequestQueue((AppCompatActivity)view);
             String url = DrawerNavigationBar.URL + "KHACHHANGs/PostKHACHHANG";
             final HashMap<String, String> params = new HashMap<>();

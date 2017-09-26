@@ -117,7 +117,7 @@ public class UserService extends Service {
 
     public Boolean PutUser(String id, KhachHang user) {
         try {
-            URL url = new URL("String url" + "Userrs/PutUserr/" + id);
+            URL url = new URL(DrawerNavigationBar.URL + "KHACHHANGs/PutKHACHHANG/" + id);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
             connection.setRequestMethod("PUT");

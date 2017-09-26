@@ -40,7 +40,7 @@ public class UserMapping {
         editor.putString("DIACHI", khachHang.getDiachi());
         editor.putString("SODIENTHOAI", khachHang.getSodienthoai());
         editor.putString("EMAIL", khachHang.getEmail());
-        editor.putString("MATKHAU", khachHang.getMakh());
+        editor.putString("MATKHAU", khachHang.getMatkhaukh());
         editor.commit();
     }
 
