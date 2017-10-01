@@ -33,7 +33,7 @@ public class DrawerNavigationBar extends AppCompatActivity implements Navigation
     private NewsFragment fourFragment;
     private SearchFragment searchFragment;
     private BottomNavigationView bottomNavigationView;
-    public static String URL = "http://192.168.1.5:1909/api/";
+    public static String URL = "http://192.168.0.119:1909/api/";
     private static final int TIME_DELAY = 2000;
     private static long back_pressed;
 

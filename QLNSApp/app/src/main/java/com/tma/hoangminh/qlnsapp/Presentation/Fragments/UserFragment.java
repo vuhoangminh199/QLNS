@@ -31,6 +31,7 @@ public class UserFragment extends android.support.v4.app.Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Cá Nhân");
          preferences = UserFragment.this.getActivity().getSharedPreferences("LOGIN", MODE_PRIVATE);
          name = preferences.getString("TENKH", null);
          pass = preferences.getString("MATKHAU", null);
