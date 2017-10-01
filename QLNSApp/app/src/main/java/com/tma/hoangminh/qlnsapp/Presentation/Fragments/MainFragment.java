@@ -38,6 +38,7 @@ public class MainFragment extends android.support.v4.app.Fragment implements New
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("MiToEbook");
         Init();
     }
 

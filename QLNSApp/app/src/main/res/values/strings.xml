@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QLNSApp</string>
+    <string name="app_name">MiToEbook</string>
     <string name="title_activity_abc">abc</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

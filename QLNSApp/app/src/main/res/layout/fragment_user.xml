@@ -24,7 +24,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
-                android:background="#4ddbff"
+                android:background="@android:color/holo_blue_light"
                 android:orientation="vertical">
 
                 <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
