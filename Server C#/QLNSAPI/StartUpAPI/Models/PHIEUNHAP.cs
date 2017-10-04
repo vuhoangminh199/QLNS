@@ -9,6 +9,10 @@ namespace StartUpAPI.Models
     [Table("PHIEUNHAP")]
     public partial class PHIEUNHAP
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
         [Key]
         [StringLength(8)]
         public string mapn { get; set; }

@@ -32,5 +32,9 @@ namespace StartUpAPI.Models
         [Column(Order = 4)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int thanhtien { get; set; }
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     }
 }

@@ -9,6 +9,10 @@ namespace StartUpAPI.Models
     [Table("QUYEN")]
     public partial class QUYEN
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
         [Key]
         [StringLength(8)]
         public string maquyen { get; set; }
@@ -16,5 +20,9 @@ namespace StartUpAPI.Models
         [Required]
         [StringLength(20)]
         public string tenquyen { get; set; }
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     }
 }

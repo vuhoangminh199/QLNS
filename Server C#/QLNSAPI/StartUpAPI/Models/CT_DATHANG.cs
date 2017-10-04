@@ -38,6 +38,10 @@ namespace StartUpAPI.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int delflag { get; set; }
 
+<<<<<<< HEAD
         public DateTime? timedel { get; set; }
+=======
+        public DateTime? timedel { get; set; } 
+>>>>>>> master
     }
 }

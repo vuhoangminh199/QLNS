@@ -9,6 +9,10 @@ namespace StartUpAPI.Models
     [Table("THELOAI")]
     public partial class THELOAI
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
         [Key]
         [StringLength(8)]
         public string matheloai { get; set; }

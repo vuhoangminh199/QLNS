@@ -9,6 +9,10 @@ namespace StartUpAPI.Models
     [Table("NHACUNGCAP")]
     public partial class NHACUNGCAP
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
         [Key]
         [StringLength(8)]
         public string mancc { get; set; }
@@ -24,5 +28,9 @@ namespace StartUpAPI.Models
         [Required]
         [StringLength(25)]
         public string sdtncc { get; set; }
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     }
 }

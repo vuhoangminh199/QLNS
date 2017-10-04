@@ -32,5 +32,9 @@ namespace StartUpAPI.Models
         [Required]
         [StringLength(50)]
         public string matkhaukh { get; set; }
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     }
 }

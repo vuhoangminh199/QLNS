@@ -45,6 +45,11 @@ namespace StartUpAPI.Models
                 .Property(e => e.sdt)
                 .IsUnicode(false);
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> master
             modelBuilder.Entity<HOADON>()
                 .Property(e => e.mahoadon)
                 .IsUnicode(false);
@@ -69,6 +74,10 @@ namespace StartUpAPI.Models
                 .Property(e => e.email)
                 .IsUnicode(false);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
             modelBuilder.Entity<NHACUNGCAP>()
                 .Property(e => e.mancc)
                 .IsUnicode(false);
@@ -77,6 +86,10 @@ namespace StartUpAPI.Models
                 .Property(e => e.sdtncc)
                 .IsUnicode(false);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
             modelBuilder.Entity<NHANVIEN>()
                 .Property(e => e.manv)
                 .IsUnicode(false);
