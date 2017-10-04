@@ -9,11 +9,6 @@ namespace StartUpAPI.Models
     [Table("QUYEN")]
     public partial class QUYEN
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public QUYEN()
-        {
-            NHANVIENs = new HashSet<NHANVIEN>();
-        }
 
         [Key]
         [StringLength(8)]
@@ -23,7 +18,5 @@ namespace StartUpAPI.Models
         [StringLength(20)]
         public string tenquyen { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NHANVIEN> NHANVIENs { get; set; }
     }
 }

@@ -148,6 +148,5 @@ C:\Users\Dell\Desktop\QLNS\Server C#\QLNSAPI\StartUpAPI\bin\Newtonsoft.Json.xml
 C:\Users\Dell\Desktop\QLNS\Server C#\QLNSAPI\StartUpAPI\bin\System.Net.Http.Formatting.xml
 C:\Users\Dell\Desktop\QLNS\Server C#\QLNSAPI\StartUpAPI\bin\System.Web.Http.xml
 C:\Users\Dell\Desktop\QLNS\Server C#\QLNSAPI\StartUpAPI\bin\System.Web.Http.WebHost.xml
-C:\Users\Dell\Desktop\QLNS\Server C#\QLNSAPI\StartUpAPI\obj\Debug\QLNSAPI.csprojResolveAssemblyReference.cache
 C:\Users\Dell\Desktop\QLNS\Server C#\QLNSAPI\StartUpAPI\obj\Debug\StartUpAPI.dll
 C:\Users\Dell\Desktop\QLNS\Server C#\QLNSAPI\StartUpAPI\obj\Debug\StartUpAPI.pdb

@@ -45,10 +45,7 @@ namespace StartUpAPI.Models
                 .Property(e => e.sdt)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<DATHANG>()
-                .HasMany(e => e.CT_DATHANG)
-                .WithRequired(e => e.DATHANG)
-                .WillCascadeOnDelete(false);
+
 
             modelBuilder.Entity<HOADON>()
                 .Property(e => e.mahoadon)
@@ -62,11 +59,6 @@ namespace StartUpAPI.Models
                 .Property(e => e.makh)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<HOADON>()
-                .HasMany(e => e.CT_HOADON)
-                .WithRequired(e => e.HOADON)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<KHACHHANG>()
                 .Property(e => e.makh)
                 .IsUnicode(false);
@@ -79,15 +71,6 @@ namespace StartUpAPI.Models
                 .Property(e => e.email)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<KHACHHANG>()
-                .HasMany(e => e.DATHANGs)
-                .WithRequired(e => e.KHACHHANG)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<KHACHHANG>()
-                .HasMany(e => e.HOADONs)
-                .WithRequired(e => e.KHACHHANG)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<NHACUNGCAP>()
                 .Property(e => e.mancc)
@@ -97,10 +80,6 @@ namespace StartUpAPI.Models
                 .Property(e => e.sdtncc)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<NHACUNGCAP>()
-                .HasMany(e => e.PHIEUNHAPs)
-                .WithRequired(e => e.NHACUNGCAP)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<NHANVIEN>()
                 .Property(e => e.manv)
@@ -122,16 +101,6 @@ namespace StartUpAPI.Models
                 .Property(e => e.maquyen)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<NHANVIEN>()
-                .HasMany(e => e.HOADONs)
-                .WithRequired(e => e.NHANVIEN)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<NHANVIEN>()
-                .HasMany(e => e.PHIEUNHAPs)
-                .WithRequired(e => e.NHANVIEN)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<PHIEUNHAP>()
                 .Property(e => e.mapn)
                 .IsUnicode(false);
@@ -144,19 +113,9 @@ namespace StartUpAPI.Models
                 .Property(e => e.mancc)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PHIEUNHAP>()
-                .HasMany(e => e.CT_PHIEUNHAP)
-                .WithRequired(e => e.PHIEUNHAP)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<QUYEN>()
                 .Property(e => e.maquyen)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<QUYEN>()
-                .HasMany(e => e.NHANVIENs)
-                .WithRequired(e => e.QUYEN)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<SACH>()
                 .Property(e => e.masach)
@@ -170,29 +129,9 @@ namespace StartUpAPI.Models
                 .Property(e => e.anhbia)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<SACH>()
-                .HasMany(e => e.CT_DATHANG)
-                .WithRequired(e => e.SACH)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<SACH>()
-                .HasMany(e => e.CT_HOADON)
-                .WithRequired(e => e.SACH)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<SACH>()
-                .HasMany(e => e.CT_PHIEUNHAP)
-                .WithRequired(e => e.SACH)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<THELOAI>()
                 .Property(e => e.matheloai)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<THELOAI>()
-                .HasMany(e => e.SACHes)
-                .WithRequired(e => e.THELOAI)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<BK_CT_DATHANG>()
                 .Property(e => e.madathang)

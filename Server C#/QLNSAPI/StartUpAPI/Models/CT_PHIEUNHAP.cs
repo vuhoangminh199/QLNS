@@ -33,8 +33,5 @@ namespace StartUpAPI.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int thanhtien { get; set; }
 
-        public virtual PHIEUNHAP PHIEUNHAP { get; set; }
-
-        public virtual SACH SACH { get; set; }
     }
 }
