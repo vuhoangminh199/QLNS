@@ -147,63 +147,71 @@ public class ChangeProfilePresenter {
                 queue.add(stringRequest);
             }
         } else {
-            final KhachHang user = new KhachHang(makh, name, diachikh, phone, emailkh, truewpass);
+            if (name.isEmpty()) {
+                view.showErrorName("Không được trống");
+                checkIsValid = true;
+            } else if (name.length() < 6) {
+                checkIsValid = true;
+                view.showErrorName("Tên không ít hơn 6 kí tự");
+            }
+            if (!checkIsValid) {
+                final KhachHang user = new KhachHang(makh, name, diachikh, phone, emailkh, truewpass);
 
-            RequestQueue queue = Volley.newRequestQueue((AppCompatActivity) view);
-            String url = DrawerNavigationBar.URL + "KHACHHANGs/PutKHACHHANG/" + makh;
-            final HashMap<String, String> params = new HashMap<>();
-            params.put("makh", user.getMakh());
-            params.put("tenkh", user.getTenkh());
-            params.put("diachi", user.getDiachi());
-            params.put("sodienthoai", user.getSodienthoai());
-            params.put("email", user.getEmail());
-            params.put("matkhaukh", user.getMatkhaukh());
-            JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.PUT, url,
-                    new JSONObject(params), new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    Toast.makeText(((AppCompatActivity) view), "Lưu Thành Công", Toast.LENGTH_SHORT).show();
-                    new UserMapping().CommitInternalData(user, (AppCompatActivity) view);
-                    view.navigationChangeSuccess(user.getTenkh());
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(((AppCompatActivity) view), "Lưu Thất Bại Quay Lại Sau", Toast.LENGTH_SHORT).show();
-                }
-            }) {
-                @Override
-                protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
-                    try {
-                        String jsonString = new String(response.data,
-                                HttpHeaderParser.parseCharset(response.headers, PROTOCOL_CHARSET));
-
-                        JSONObject result = null;
-
-                        if (jsonString != null && jsonString.length() > 0)
-                            result = new JSONObject(jsonString);
-
-                        return Response.success(result,
-                                HttpHeaderParser.parseCacheHeaders(response));
-                    } catch (UnsupportedEncodingException e) {
-                        return Response.error(new ParseError(e));
-                    } catch (JSONException je) {
-                        return Response.error(new ParseError(je));
+                RequestQueue queue = Volley.newRequestQueue((AppCompatActivity) view);
+                String url = DrawerNavigationBar.URL + "KHACHHANGs/PutKHACHHANG/" + makh;
+                final HashMap<String, String> params = new HashMap<>();
+                params.put("makh", user.getMakh());
+                params.put("tenkh", user.getTenkh());
+                params.put("diachi", user.getDiachi());
+                params.put("sodienthoai", user.getSodienthoai());
+                params.put("email", user.getEmail());
+                params.put("matkhaukh", user.getMatkhaukh());
+                JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.PUT, url,
+                        new JSONObject(params), new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Toast.makeText(((AppCompatActivity) view), "Lưu Thành Công", Toast.LENGTH_SHORT).show();
+                        new UserMapping().CommitInternalData(user, (AppCompatActivity) view);
+                        view.navigationChangeSuccess(user.getTenkh());
                     }
-                }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(((AppCompatActivity) view), "Lưu Thất Bại Quay Lại Sau", Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+                    @Override
+                    protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
+                        try {
+                            String jsonString = new String(response.data,
+                                    HttpHeaderParser.parseCharset(response.headers, PROTOCOL_CHARSET));
 
-                @Override
-                public Map<String, String> getHeaders() throws AuthFailureError {
-                    Map<String, String> params = new HashMap<String, String>();
-                    params.put("Content-Type", "application/json; charset=utf-8");
-                    return params;
-                }
+                            JSONObject result = null;
 
-            };
-            VolleyLog.DEBUG = true;
-            queue.add(stringRequest);
+                            if (jsonString != null && jsonString.length() > 0)
+                                result = new JSONObject(jsonString);
+
+                            return Response.success(result,
+                                    HttpHeaderParser.parseCacheHeaders(response));
+                        } catch (UnsupportedEncodingException e) {
+                            return Response.error(new ParseError(e));
+                        } catch (JSONException je) {
+                            return Response.error(new ParseError(je));
+                        }
+                    }
+
+                    @Override
+                    public Map<String, String> getHeaders() throws AuthFailureError {
+                        Map<String, String> params = new HashMap<String, String>();
+                        params.put("Content-Type", "application/json; charset=utf-8");
+                        return params;
+                    }
+
+                };
+                VolleyLog.DEBUG = true;
+                queue.add(stringRequest);
+            }
         }
-
     }
 
     public void onBackNormalTextRegister(int flag) {
