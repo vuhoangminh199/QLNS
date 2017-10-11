@@ -25,6 +25,5 @@ namespace StartUpAPI.Models
         [Required]
         [StringLength(25)]
         public string sdtncc { get; set; }
-
-    }
+   }
 }

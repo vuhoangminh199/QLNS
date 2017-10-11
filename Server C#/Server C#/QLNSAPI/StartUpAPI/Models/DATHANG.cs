@@ -9,6 +9,7 @@ namespace StartUpAPI.Models
     [Table("DATHANG")]
     public partial class DATHANG
     {
+
         [Key]
         [StringLength(8)]
         public string madathang { get; set; }

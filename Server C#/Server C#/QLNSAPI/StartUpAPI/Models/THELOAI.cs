@@ -17,5 +17,6 @@ namespace StartUpAPI.Models
         [Required]
         [StringLength(25)]
         public string tentheloai { get; set; }
+        
     }
 }

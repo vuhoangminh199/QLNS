@@ -115,7 +115,6 @@ public class UserPresenter {
         }
         if (!checkIsValid) {
             final KhachHang user = new KhachHang("123", name, "ABC", phoneNumber, "123", password);
-
             RequestQueue queue = Volley.newRequestQueue((AppCompatActivity)view);
             String url = DrawerNavigationBar.URL + "KHACHHANGs/PostKHACHHANG";
             final HashMap<String, String> params = new HashMap<>();

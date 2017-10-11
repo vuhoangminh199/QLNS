@@ -9,6 +9,7 @@ namespace StartUpAPI.Models
     [Table("NHANVIEN")]
     public partial class NHANVIEN
     {
+
         [Key]
         [StringLength(8)]
         public string manv { get; set; }
@@ -41,5 +42,6 @@ namespace StartUpAPI.Models
         public string maquyen { get; set; }
 
         public bool tinhtrang { get; set; }
+        
     }
 }

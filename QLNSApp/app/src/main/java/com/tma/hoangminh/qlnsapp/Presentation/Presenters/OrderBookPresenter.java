@@ -79,38 +79,61 @@ public class OrderBookPresenter {
                     super.onPostExecute(s);
                     if(s){
                         RequestQueue queue = Volley.newRequestQueue(view.getContext());
-                        String url = DrawerNavigationBar.URL + "CT_DATHANGs/PostCT_DATHANG";
-                        final HashMap<String, String> params = new HashMap<>();
-                        params.put("madathang",ct_datHang.getMadathang());
-                        params.put("masach", ct_datHang.getMasach());
-                        params.put("soluongdat", ct_datHang.getSoluongdat()+"");
-                        params.put("dongia", ct_datHang.getDongia()+"");
-                        params.put("thanhtien", ct_datHang.getThanhtien()+"");
-                        params.put("delflag", ct_datHang.getDelflag()+"");
-
-                        JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.POST, url,
-                                new JSONObject(params), new Response.Listener<JSONObject>() {
+                        String url = DrawerNavigationBar.URL + "DATHANGs/GetDATHANGs";
+                        JsonArrayRequest getRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
                             @Override
-                            public void onResponse(JSONObject response) {
-                                view.navigatorToSuccess();
+                            public void onResponse(JSONArray response) {
+                                OrderMapping orderMapping = new OrderMapping();
+                                List<DatHang> datHangs=  orderMapping.DatHang(response);
+                                RequestQueue queue = Volley.newRequestQueue(view.getContext());
+                                String url = DrawerNavigationBar.URL + "CT_DATHANGs/PostCT_DATHANG";
+
+                                final HashMap<String, String> params = new HashMap<>();
+                                params.put("madathang",datHangs.get(datHangs.size()-1).getMadathang());
+                                params.put("masach", ct_datHang.getMasach());
+                                params.put("soluongdat", ct_datHang.getSoluongdat()+"");
+                                params.put("dongia", ct_datHang.getDongia()+"");
+                                params.put("thanhtien", ct_datHang.getThanhtien()+"");
+                                params.put("delflag", ct_datHang.getDelflag()+"");
+
+                                JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.POST, url,
+                                        new JSONObject(params), new Response.Listener<JSONObject>() {
+                                    @Override
+                                    public void onResponse(JSONObject response) {
+                                        view.navigatorToSuccess();
+                                    }
+                                }, new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        Toast.makeText((AppCompatActivity) view, " loi OrderBookDetail", Toast.LENGTH_SHORT).show();
+                                    }
+                                }) {
+
+                                    @Override
+                                    public Map<String, String> getHeaders() throws AuthFailureError {
+                                        Map<String,String> params = new HashMap<String, String>();
+                                        params.put("Content-Type","application/json; charset=utf-8");
+                                        return params;
+                                    }
+
+                                };
+                                VolleyLog.DEBUG = true;
+                                queue.add(stringRequest);
                             }
                         }, new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                Toast.makeText((AppCompatActivity) view, " loi OrderBookDetail", Toast.LENGTH_SHORT).show();
+                                Toast.makeText((AppCompatActivity)view,"Không load được list đặt hàng",Toast.LENGTH_SHORT).show();
                             }
-                        }) {
-
+                        }){
                             @Override
                             public Map<String, String> getHeaders() throws AuthFailureError {
                                 Map<String,String> params = new HashMap<String, String>();
                                 params.put("Content-Type","application/json; charset=utf-8");
                                 return params;
                             }
-
                         };
-                        VolleyLog.DEBUG = true;
-                        queue.add(stringRequest);
+                        queue.add(getRequest);
                     } else {
                         Toast.makeText((AppCompatActivity)view,"Co loi OrderBook",Toast.LENGTH_SHORT).show();
                     }

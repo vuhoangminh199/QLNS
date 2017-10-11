@@ -92,9 +92,7 @@ namespace StartUpAPI.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            List<KHACHHANG> listuser = db.KHACHHANGs.ToList();
-            String makh = "KH" + (listuser.Count + 1);
+            String makh = " ";
             kHACHHANG.makh = makh;
             db.KHACHHANGs.Add(kHACHHANG);
             try

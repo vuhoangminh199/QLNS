@@ -39,6 +39,5 @@ namespace StartUpAPI.Models
         public int delflag { get; set; }
 
         public DateTime? timedel { get; set; }
-
     }
 }

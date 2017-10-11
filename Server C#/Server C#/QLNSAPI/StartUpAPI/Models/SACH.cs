@@ -9,6 +9,8 @@ namespace StartUpAPI.Models
     [Table("SACH")]
     public partial class SACH
     {
+     
+
         [Key]
         [StringLength(8)]
         public string masach { get; set; }

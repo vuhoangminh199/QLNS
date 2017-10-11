@@ -80,7 +80,7 @@ namespace StartUpAPI.Controllers
                 return BadRequest(ModelState);
             }
             
-            dATHANG.madathang = "DH" + (db.DATHANGs.Count() + 1);
+            dATHANG.madathang = " ";
             db.DATHANGs.Add(dATHANG);
             try
             {

@@ -9,6 +9,7 @@ namespace StartUpAPI.Models
     [Table("PHIEUNHAP")]
     public partial class PHIEUNHAP
     {
+        
 
         [Key]
         [StringLength(8)]

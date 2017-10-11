@@ -32,7 +32,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class OrderBookActivity extends AppCompatActivity implements OrderBookView{
+public class    OrderBookActivity extends AppCompatActivity implements OrderBookView{
     private Toolbar toolbar;
     private ImageView myImage;
     private TextView txtTitle, txtArt, txtPrice, txtNumber, txtNameError, txtPhoneError, txtAddressError;
@@ -129,7 +129,7 @@ public class OrderBookActivity extends AppCompatActivity implements OrderBookVie
                     long twoDay = millis + TimeUnit.HOURS.toMillis(1l) * 48;
                     java.sql.Date date=new java.sql.Date(millis);
                     java.sql.Date dateOrder=new java.sql.Date(twoDay);
-                    DatHang datHang = new DatHang("DH"+(itemInListDh + 1), makh, editPhone.getText().toString(),
+                    DatHang datHang = new DatHang("123", makh, editPhone.getText().toString(),
                             editAddress.getText().toString(), date.toString(),
                             dateOrder.toString(), myIntent.getIntExtra("giasach_order", 0) * myNumber, true);
 

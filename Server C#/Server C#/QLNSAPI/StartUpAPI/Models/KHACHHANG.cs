@@ -9,6 +9,7 @@ namespace StartUpAPI.Models
     [Table("KHACHHANG")]
     public partial class KHACHHANG
     {
+
         [Key]
         [StringLength(8)]
         public string makh { get; set; }
@@ -32,6 +33,5 @@ namespace StartUpAPI.Models
         [Required]
         [StringLength(50)]
         public string matkhaukh { get; set; }
-
     }
 }
