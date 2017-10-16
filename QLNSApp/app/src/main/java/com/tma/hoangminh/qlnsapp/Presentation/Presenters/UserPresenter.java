@@ -37,7 +37,7 @@ public class UserPresenter {
         if (phoneNumber.isEmpty()) {
             view.showErrorPhone("Không được trống");
         } else if (phoneNumber.length() < 10 || phoneNumber.length() > 12) {
-            view.showErrorPhone("Độ dài không phù hợp");
+            view.showErrorPhone("Độ dài không phù hợp (10 - 12)");
         }
 
         if (password.isEmpty()) {
@@ -57,22 +57,25 @@ public class UserPresenter {
             @Override
             protected String doInBackground(Void... params) {
                 return new UserService().LoginUser(phoneNumber, password);
-                //return  new UserService().getUser();
             }
 
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                khachHang = new KhachHang();
-                khachHang = new UserMapping().ParseUser(s);
-                if (khachHang != null) {
-                    new UserMapping().CommitInternalData(khachHang, (AppCompatActivity)view);
-                    view.navigationLoginSuccess(khachHang.getTenkh());
-                } else {
-                    view.showLoginFail();
-                }
+                SetupUser(s);
             }
         }.execute();
+    }
+
+    public void SetupUser(String s){
+        khachHang = new KhachHang();
+        khachHang = new UserMapping().ParseUser(s);
+        if (khachHang != null) {
+            new UserMapping().CommitInternalData(khachHang, (AppCompatActivity)view);
+            view.navigationLoginSuccess(khachHang.getTenkh());
+        } else {
+            view.showLoginFail();
+        }
     }
 
     public void onBackNormalText(boolean flag) {
@@ -93,14 +96,14 @@ public class UserPresenter {
             checkIsValid = true;
         } else if (name.length() < 6) {
             checkIsValid = true;
-            view.showErrorRName("Mật khẩu không ít hơn 6 kí tự");
+            view.showErrorRName("Tên không ít hơn 6 kí tự");
         }
 
         if (phoneNumber.isEmpty()) {
             checkIsValid = true;
             view.showErrorRPhone("Không được trống");
         } else if (phoneNumber.length() < 10 || phoneNumber.length() > 12) {
-            view.showErrorRPhone("Độ dài không phù hợp");
+            view.showErrorRPhone("Độ dài không phù hợp (10 - 12)");
             checkIsValid = true;
         }
 
