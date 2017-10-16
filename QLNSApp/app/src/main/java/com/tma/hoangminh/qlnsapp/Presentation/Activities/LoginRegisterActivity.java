@@ -18,7 +18,7 @@ import com.tma.hoangminh.qlnsapp.Presentation.Presenters.UserPresenter;
 import com.tma.hoangminh.qlnsapp.Presentation.Views.UserView;
 import com.tma.hoangminh.qlnsapp.R;
 
-public class LoginResgiserActivity extends AppCompatActivity implements UserView {
+public class LoginRegisterActivity extends AppCompatActivity implements UserView {
     private EditText editPhone, editPassword, editRname, editRphone, editRpassword;
     private Button btnLogin, btnRegister;
     private TabHost tab;
@@ -72,13 +72,13 @@ public class LoginResgiserActivity extends AppCompatActivity implements UserView
         nameRerror = (TextView) findViewById(R.id.name_register_error);
         phoneRerror = (TextView) findViewById(R.id.phone_register_error);
         passRerror = (TextView) findViewById(R.id.pass_register_error);
-        presenter = new UserPresenter(LoginResgiserActivity.this);
+        presenter = new UserPresenter(LoginRegisterActivity.this);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_left);
         getSupportActionBar().setTitle("");
-        progressDialog = new ProgressDialog(LoginResgiserActivity.this);
+        progressDialog = new ProgressDialog(LoginRegisterActivity.this);
         progressDialog.setMessage("Vui Lòng Chờ......");
         progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
         progressDialog.setIndeterminate(true);
@@ -219,7 +219,7 @@ public class LoginResgiserActivity extends AppCompatActivity implements UserView
     @Override
     public void navigationLoginSuccess(String name) {
         progressDialog.hide();
-        Toast.makeText(LoginResgiserActivity.this, "Thanh cong", Toast.LENGTH_SHORT).show();
+        Toast.makeText(LoginRegisterActivity.this, "Thanh cong", Toast.LENGTH_SHORT).show();
         getIntent().putExtra("username",name);
         setResult(2,getIntent());
         finish();
@@ -253,13 +253,13 @@ public class LoginResgiserActivity extends AppCompatActivity implements UserView
     @Override
     public void showLoginFail() {
         progressDialog.hide();
-        Toast.makeText(LoginResgiserActivity.this, "Mật Khẩu hoặc Số điện thoại không đúng", Toast.LENGTH_SHORT).show();
+        Toast.makeText(LoginRegisterActivity.this, "Mật Khẩu hoặc Số điện thoại không đúng", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void navigationRegisterSuccess(String name) {
         progressDialog.hide();
-        Toast.makeText(LoginResgiserActivity.this, "Dang ki Thang Cong", Toast.LENGTH_SHORT).show();
+        Toast.makeText(LoginRegisterActivity.this, "Dang ki Thang Cong", Toast.LENGTH_SHORT).show();
         getIntent().putExtra("username",name);
         setResult(2,getIntent());
         finish();
@@ -304,7 +304,7 @@ public class LoginResgiserActivity extends AppCompatActivity implements UserView
     @Override
     public void showRegisterFail() {
         progressDialog.hide();
-        Toast.makeText(LoginResgiserActivity.this, "Dang ki That Bai", Toast.LENGTH_SHORT).show();
+        Toast.makeText(LoginRegisterActivity.this, "Dang ki That Bai", Toast.LENGTH_SHORT).show();
     }
 
     @Override

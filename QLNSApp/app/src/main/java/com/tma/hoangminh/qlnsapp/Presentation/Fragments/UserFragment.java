@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.tma.hoangminh.qlnsapp.Domain.Model.Mapping_Tool.UserMapping;
 import com.tma.hoangminh.qlnsapp.Presentation.Activities.ChangeProfileActivity;
-import com.tma.hoangminh.qlnsapp.Presentation.Activities.LoginResgiserActivity;
+import com.tma.hoangminh.qlnsapp.Presentation.Activities.LoginRegisterActivity;
 import com.tma.hoangminh.qlnsapp.R;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -71,7 +71,7 @@ public class UserFragment extends android.support.v4.app.Fragment {
             @Override
             public void onClick(View view) {
                 if(!logged){
-                    Intent intentToSignIn = new Intent(UserFragment.this.getContext(),LoginResgiserActivity.class);
+                    Intent intentToSignIn = new Intent(UserFragment.this.getContext(),LoginRegisterActivity.class);
                     ActivityOptions options =
                             ActivityOptions.makeCustomAnimation(getContext(),R.anim.top_from_bottom, R.anim.bottom_from_top);
                     startActivityForResult(intentToSignIn, key, options.toBundle());

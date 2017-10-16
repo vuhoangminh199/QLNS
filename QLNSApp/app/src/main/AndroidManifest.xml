@@ -33,7 +33,7 @@
             android:name=".Presentation.Activities.BookDetailActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".Presentation.Activities.LoginResgiserActivity"
+            android:name=".Presentation.Activities.LoginRegisterActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".Presentation.Activities.OrderBookActivity"
