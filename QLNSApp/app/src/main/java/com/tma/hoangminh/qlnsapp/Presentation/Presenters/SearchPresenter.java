@@ -80,7 +80,6 @@ public class SearchPresenter {
                         view.SetUpListBookHot(listBook);
                     }
                 }
-
             }
         }.execute();
     }

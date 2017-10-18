@@ -52,7 +52,7 @@ public class OrderBookPresenter {
             checkIsValid = true;
             view.showErrorPhone("Không được trống");
         } else if (phoneNumber.length() < 10 || phoneNumber.length() > 12) {
-            view.showErrorPhone("Độ dài không phù hợp");
+            view.showErrorPhone("Độ dài không phù hợp(10-12)");
             checkIsValid = true;
         }
 

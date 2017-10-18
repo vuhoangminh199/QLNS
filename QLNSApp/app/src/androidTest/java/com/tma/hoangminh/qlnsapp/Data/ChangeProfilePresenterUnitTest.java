@@ -1,5 +1,6 @@
 package com.tma.hoangminh.qlnsapp.Data;
 
+
 import android.os.AsyncTask;
 import android.test.InstrumentationTestCase;
 
@@ -11,7 +12,7 @@ import junit.framework.Assert;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-public class UserPresenterUITest extends InstrumentationTestCase {
+public class ChangeProfilePresenterUnitTest extends InstrumentationTestCase {
 
     protected void setUp() throws Exception {
         super.setUp();
@@ -21,38 +22,9 @@ public class UserPresenterUITest extends InstrumentationTestCase {
         super.tearDown();
     }
 
-    public final void testLoginSuccess() throws Throwable {
+    public final void testChangeProfileSuccess() throws Throwable {
         final CountDownLatch signal = new CountDownLatch(1);
-
-        runTestOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                new AsyncTask<Void, Void, String>() {
-                    @Override
-                    protected void onPreExecute() {
-                        super.onPreExecute();
-                    }
-
-                    @Override
-                    protected String doInBackground(Void... params) {
-                        return new UserService().LoginUser("1231231231", "123123");
-                    }
-
-                    @Override
-                    protected void onPostExecute(String s) {
-                        super.onPostExecute(s);
-                        signal.countDown();
-                    }
-                }.execute();
-            }
-        });
-        signal.await(10, TimeUnit.SECONDS);
-        Assert.assertNotNull("");
-    }
-
-    public final void testRegisterSuccess() throws Throwable {
-        final CountDownLatch signal = new CountDownLatch(1);
-        final KhachHang user = new KhachHang("123", "vuhoangminh", "ABC", "1231233331", "123", "123123");
+        final KhachHang user = new KhachHang("KH01", "vuhoangminh", "55 tan quy", "0908059975", "vhminh@domail.com", "123123");
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -64,7 +36,7 @@ public class UserPresenterUITest extends InstrumentationTestCase {
 
                     @Override
                     protected Boolean doInBackground(Object... params) {
-                        return new UserService().PostUser(user);
+                        return new UserService().PutUser("KH01",user);
                     }
 
                     @Override
