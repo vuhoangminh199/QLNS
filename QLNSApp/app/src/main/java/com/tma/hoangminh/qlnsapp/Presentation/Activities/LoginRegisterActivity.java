@@ -259,7 +259,7 @@ public class LoginRegisterActivity extends AppCompatActivity implements UserView
     @Override
     public void navigationRegisterSuccess(String name) {
         progressDialog.hide();
-        Toast.makeText(LoginRegisterActivity.this, "Dang ki Thang Cong", Toast.LENGTH_SHORT).show();
+        Toast.makeText(LoginRegisterActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
         getIntent().putExtra("username",name);
         setResult(2,getIntent());
         finish();

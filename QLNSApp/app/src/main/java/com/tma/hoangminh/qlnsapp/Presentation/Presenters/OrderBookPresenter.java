@@ -105,7 +105,7 @@ public class OrderBookPresenter {
                                 }, new Response.ErrorListener() {
                                     @Override
                                     public void onErrorResponse(VolleyError error) {
-                                        Toast.makeText((AppCompatActivity) view, " loi OrderBookDetail", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText((AppCompatActivity) view, "Đã có lỗi Order Book", Toast.LENGTH_SHORT).show();
                                     }
                                 }) {
 
@@ -135,7 +135,7 @@ public class OrderBookPresenter {
                         };
                         queue.add(getRequest);
                     } else {
-                        Toast.makeText((AppCompatActivity)view,"Co loi OrderBook",Toast.LENGTH_SHORT).show();
+                        Toast.makeText((AppCompatActivity)view,"Đã có lỗi Order Book",Toast.LENGTH_SHORT).show();
                     }
                 }
             }.execute();
