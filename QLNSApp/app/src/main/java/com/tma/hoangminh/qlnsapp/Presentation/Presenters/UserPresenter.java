@@ -131,14 +131,14 @@ public class UserPresenter {
                     new JSONObject(params), new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    Toast.makeText(((AppCompatActivity)view),"Dang ki thanh cong",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(((AppCompatActivity)view),"Đăng ký thành công",Toast.LENGTH_SHORT).show();
                     new UserMapping().CommitInternalData(user, (AppCompatActivity)view);
                     view.navigationRegisterSuccess(user.getTenkh());
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(((AppCompatActivity)view),"Dang ki that bai vui long dang ki lai",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(((AppCompatActivity)view),"Đăng ký thất bại vui lòng đăng ký lại",Toast.LENGTH_SHORT).show();
                     view.showRegisterFail();
                 }
             }) {
