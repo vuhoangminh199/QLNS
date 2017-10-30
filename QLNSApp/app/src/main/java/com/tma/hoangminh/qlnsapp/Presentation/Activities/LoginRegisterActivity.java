@@ -1,4 +1,4 @@
-package com.tma.hoangminh.qlnsapp.Presentation.Activities;
+﻿package com.tma.hoangminh.qlnsapp.Presentation.Activities;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -304,7 +304,7 @@ public class LoginRegisterActivity extends AppCompatActivity implements UserView
     @Override
     public void showRegisterFail() {
         progressDialog.hide();
-        Toast.makeText(LoginRegisterActivity.this, "Dang ki That Bai", Toast.LENGTH_SHORT).show();
+        Toast.makeText(LoginRegisterActivity.this, "Đăng kí thất bại", Toast.LENGTH_SHORT).show();
     }
 
     @Override
