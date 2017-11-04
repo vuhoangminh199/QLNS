@@ -33,7 +33,7 @@ public class DrawerNavigationBar extends AppCompatActivity implements Navigation
     private NewsFragment fourFragment;
     private SearchFragment searchFragment;
     private BottomNavigationView bottomNavigationView;
-    public static String URL = "http://192.168.0.128:1909/api/";
+    public static String URL = "http://192.168.1.8:1909/api/";
     private static final int TIME_DELAY = 2000;
     private static long back_pressed;
 
@@ -191,23 +191,23 @@ public class DrawerNavigationBar extends AppCompatActivity implements Navigation
         int id = item.getItemId();
 
         if (id == R.id.nav_haihuoc) {
-            IntetnToType("TL01");
+            IntetnToType("TL000001");
         } else if (id == R.id.nav_thieunhi) {
-            IntetnToType("TL02");
+            IntetnToType("TL000002");
         } else if (id == R.id.nav_langman) {
-            IntetnToType("TL03");
+            IntetnToType("TL000003");
         } else if (id == R.id.nav_phieuluu) {
-            IntetnToType("TL04");
+            IntetnToType("TL000004");
         } else if (id == R.id.nav_chuyennganh) {
-            IntetnToType("TL05");
+            IntetnToType("TL000005");
         } else if (id == R.id.nav_kinhdi) {
-            IntetnToType("TL06");
+            IntetnToType("TL000006");
         } else if (id == R.id.nav_congnghe) {
-            IntetnToType("TL07");
+            IntetnToType("TL000007");
         } else if (id == R.id.nav_nhanvan) {
-            IntetnToType("TL08");
+            IntetnToType("TL000008");
         } else if (id == R.id.nav_tuoimoilon) {
-            IntetnToType("TL09");
+            IntetnToType("TL000009");
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

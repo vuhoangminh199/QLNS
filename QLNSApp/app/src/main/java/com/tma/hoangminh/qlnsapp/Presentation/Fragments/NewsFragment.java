@@ -63,10 +63,12 @@ public class NewsFragment extends android.support.v4.app.Fragment implements New
     }
     @Override
     public void SetUpListBook(List<Sach> listBook) {
-        myNewsListAdapter = new NewsAdapter(NewsFragment.this.getContext(), listBook);
-        myNewsList.setAdapter(myNewsListAdapter);
-        myListSach = listBook;
-        progressBar.setVisibility(View.GONE);
+        if(getActivity()!=null){
+            myNewsListAdapter = new NewsAdapter(getContext(), listBook);
+            myNewsList.setAdapter(myNewsListAdapter);
+            myListSach = listBook;
+            progressBar.setVisibility(View.GONE);
+        }
     }
 
     @Override

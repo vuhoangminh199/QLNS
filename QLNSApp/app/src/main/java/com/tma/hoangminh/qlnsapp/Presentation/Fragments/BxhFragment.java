@@ -63,7 +63,10 @@ public class BxhFragment extends android.support.v4.app.Fragment implements BxhV
     @Override
     public void SetUpListBook(List<Sach> sachList) {
         listBook = sachList;
-        adapter = new BxhAdapter(BxhFragment.this.getContext(), sachList);
-        myListView.setAdapter(adapter);
+        if(getActivity()!=null){
+            adapter = new BxhAdapter(getActivity(), sachList);
+            myListView.setAdapter(adapter);
+        }
+
     }
 }

@@ -183,18 +183,19 @@ public class SearchFragment extends android.support.v4.app.Fragment implements S
 
     @Override
     public void ListBookByName(List<Sach> listBook) {
-        if (listBook.size() > 0) {
-            mySachList = listBook;
-            mySearchListAdapter = new SearchListAdapter(SearchFragment.this.getContext(), listBook);
-            mySearchList.setAdapter(mySearchListAdapter);
-            mySearchList.setVisibility(View.VISIBLE);
-            layouttop.setVisibility(View.GONE);
-            layoutbot.setVisibility(View.GONE);
-        } else {
-            mySearchList.setVisibility(View.GONE);
-            layouttop.setVisibility(View.GONE);
-            layoutbot.setVisibility(View.VISIBLE);
+        if(getActivity()!=null){
+            if (listBook.size() > 0) {
+                mySachList = listBook;
+                mySearchListAdapter = new SearchListAdapter(getActivity(), listBook);
+                mySearchList.setAdapter(mySearchListAdapter);
+                mySearchList.setVisibility(View.VISIBLE);
+                layouttop.setVisibility(View.GONE);
+                layoutbot.setVisibility(View.GONE);
+            } else {
+                mySearchList.setVisibility(View.GONE);
+                layouttop.setVisibility(View.GONE);
+                layoutbot.setVisibility(View.VISIBLE);
+            }
         }
-
     }
 }

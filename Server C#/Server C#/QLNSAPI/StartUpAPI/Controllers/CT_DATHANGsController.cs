@@ -80,7 +80,11 @@ namespace StartUpAPI.Controllers
             }
 
             db.CT_DATHANG.Add(cT_DATHANG);
+            SACH sach = db.SACHes.Find(cT_DATHANG.masach);
+            sach.soluongton = sach.soluongton - cT_DATHANG.soluongdat;
 
+            db.Entry(sach).State = EntityState.Modified;
+            db.SaveChanges();
             try
             {
                 db.SaveChanges();

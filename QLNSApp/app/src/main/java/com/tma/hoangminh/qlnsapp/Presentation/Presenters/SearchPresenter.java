@@ -34,7 +34,8 @@ public class SearchPresenter {
 
     public void SetUpListBook(String name) {
         RequestQueue queue = Volley.newRequestQueue(view.getContext());
-        String url = DrawerNavigationBar.URL + "SACHes/GetSACHesByName/" + name;
+        String newName = name.replace(" ","");
+        String url = DrawerNavigationBar.URL + "SACHes/GetSACHesByName/" + newName;
         JsonArrayRequest getRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {

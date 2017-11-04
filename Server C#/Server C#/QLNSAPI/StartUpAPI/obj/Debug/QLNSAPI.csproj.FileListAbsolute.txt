@@ -226,3 +226,4 @@ C:\Users\Dell\Desktop\QLNS\Server C#\Server C#\QLNSAPI\StartUpAPI\bin\System.Web
 C:\Users\Dell\Desktop\QLNS\Server C#\Server C#\QLNSAPI\StartUpAPI\bin\System.Web.Http.WebHost.xml
 C:\Users\Dell\Desktop\QLNS\Server C#\Server C#\QLNSAPI\StartUpAPI\obj\Debug\StartUpAPI.dll
 C:\Users\Dell\Desktop\QLNS\Server C#\Server C#\QLNSAPI\StartUpAPI\obj\Debug\StartUpAPI.pdb
+C:\Users\Dell\Desktop\QLNS\Server C#\Server C#\QLNSAPI\StartUpAPI\obj\Debug\QLNSAPI.csprojResolveAssemblyReference.cache

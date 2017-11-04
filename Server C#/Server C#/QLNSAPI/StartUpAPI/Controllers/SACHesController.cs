@@ -26,17 +26,31 @@ namespace StartUpAPI.Controllers
         // GET: api/SACHes
         public IQueryable<SACH> GetSACHes()
         {
-            return db.SACHes; 
+            return db.SACHes.Where(s=>s.delflag == 0); 
         }
 
         // GET: api/GetSACHesHot
         public IQueryable<SACH> GetSACHesHot()
         {
-            return db.SACHes.OrderBy(s=>s.ngayxuatban); 
+            return db.SACHes.OrderBy(s => s.ngayxuatban).Where(s => s.delflag == 0);
         }
 
-        // GET: api/SACHes/5
-        [ResponseType(typeof(SACH))]
+        // GET: api/GetSACHesByName
+        [Route("api/SACHes/GetSACHesByName/{name}")]
+         public IQueryable<SACH> GetSACHesByName(String name)
+         {
+             return db.SACHes.Where(s => (s.delflag == 0) && ((s.tensach.Contains(name)) || (s.tacgia.Contains(name))));
+         }
+        // GET: api/GetSACHesOfType
+         [ResponseType(typeof(SACH))]
+         [Route("api/SACHes/GetSACHesOfType/{id}")]
+         public IQueryable<SACH> GetSACHesOfType(String id)
+         {
+             return db.SACHes.Where(s => (s.matheloai == id) && (s.delflag == 0));
+          }
+
+// GET: api/SACHes/5
+[ResponseType(typeof(SACH))]
         [Route("api/SACHes/GetSACH/{id}")]
         public IHttpActionResult GetSACH(string id)
         {

@@ -17,14 +17,14 @@ import com.tma.hoangminh.qlnsapp.R;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 
 public class ThichAdapter extends RecyclerView.Adapter<ThichAdapter.ViewHolder> {
 
     private List<Sach> listBook;
+    private List<Sach> newListBook;
     private Context context;
     private static final int key = 1;
 
@@ -42,10 +42,12 @@ public class ThichAdapter extends RecyclerView.Adapter<ThichAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(ThichAdapter.ViewHolder holder, final int position) {
-        long seed = System.nanoTime();
-        Collections.shuffle(listBook, new Random(seed));
+        newListBook = new ArrayList<>();
+        for (int i = listBook.size()-1;i>=0;i--){
+            newListBook.add(listBook.get(i));
+        }
         try {
-            URL url = new URL(DrawerNavigationBar.URL + "SACHes/GetSACHImage/" + listBook.get(position).getMasach());
+            URL url = new URL(DrawerNavigationBar.URL + "SACHes/GetSACHImage/" + newListBook.get(position).getMasach());
             Glide.with(context).fromUrl().asBitmap().load(url).centerCrop().into(holder.myImage);
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -56,7 +58,7 @@ public class ThichAdapter extends RecyclerView.Adapter<ThichAdapter.ViewHolder> 
             public void onClick(View view) {
                 Intent intentToDetail = new Intent(context, BookDetailActivity.class);
                 intentToDetail.putExtra("pos", position);
-                intentToDetail.putExtra("masach", listBook.get(position).getMasach());
+                intentToDetail.putExtra("masach", newListBook.get(position).getMasach());
                 ((Activity)context).startActivityForResult(intentToDetail, key);
             }
         });

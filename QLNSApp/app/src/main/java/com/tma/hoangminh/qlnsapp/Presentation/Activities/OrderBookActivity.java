@@ -101,7 +101,7 @@ public class    OrderBookActivity extends AppCompatActivity implements OrderBook
             public void onClick(View view) {
                 if(myNumber > 1 ){
                     txtNumber.setText((--myNumber)+"");
-                    txtPrice.setText(myIntent.getIntExtra("giasach_order", 0) * myNumber + "Đ");
+                    txtPrice.setText(myIntent.getIntExtra("giasach_order", 0) * myNumber + " Đ");
                 }
             }
         });
@@ -111,7 +111,7 @@ public class    OrderBookActivity extends AppCompatActivity implements OrderBook
             public void onClick(View view) {
                 if (soluongton > myNumber ){
                     txtNumber.setText("" + (++myNumber));
-                    txtPrice.setText(myIntent.getIntExtra("giasach_order", 0) * myNumber +"Đ");
+                    txtPrice.setText(myIntent.getIntExtra("giasach_order", 0) * myNumber +" Đ");
                 } else {
                     Toast.makeText(OrderBookActivity.this,"Số lượng chỉ có " + soluongton , Toast.LENGTH_SHORT).show();
                 }

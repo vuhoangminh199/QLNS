@@ -92,6 +92,12 @@ public class BookDetailActivity extends AppCompatActivity implements BookDetailV
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.SetUpListBook();
+    }
+
+    @Override
     public void navigationBack() {
         finish();
     }

@@ -37,8 +37,8 @@ public class MainFragment extends android.support.v4.app.Fragment implements New
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("MiToEbook");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("MiToEbook");
         Init();
     }
 
@@ -48,7 +48,7 @@ public class MainFragment extends android.support.v4.app.Fragment implements New
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         mViewFlipper = view.findViewById(R.id.view_flipper);
         myRecyclerViewChonLoc = view.findViewById(R.id.recycler_view);
-        myRecyclerViewPhatHanh =(RecyclerView) view.findViewById(R.id.recycler_view_phathanh);
+        myRecyclerViewPhatHanh = (RecyclerView) view.findViewById(R.id.recycler_view_phathanh);
         myRecyclerViewHot = view.findViewById(R.id.recycler_view_hot);
         myRecyclerViewThich = view.findViewById(R.id.recycler_view_thich);
         progressBarChonLoc = view.findViewById(R.id.progressbar_chonloc);
@@ -65,20 +65,19 @@ public class MainFragment extends android.support.v4.app.Fragment implements New
         myRecyclerViewHot.setVisibility(View.GONE);
         myRecyclerViewThich.setVisibility(View.GONE);
 
-
         SetUpFlipper();
 
         SetUpAdapter();
         return view;
     }
 
-    public void Init(){
+    public void Init() {
         presenter = new NewsPresenter(MainFragment.this);
         presenter.SetUpListBook();
         presenter.SetUpListBookHot();
     }
 
-    public void SetUpAdapter(){
+    public void SetUpAdapter() {
          /*-Chon Loc Adapter-*/
         myRecyclerViewChonLoc.setHasFixedSize(true);
         myManagerChonLoc = new LinearLayoutManager(MainFragment.this.getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -107,7 +106,7 @@ public class MainFragment extends android.support.v4.app.Fragment implements New
 
     }
 
-    public void SetUpFlipper(){
+    public void SetUpFlipper() {
         mViewFlipper.setAutoStart(true);
         mViewFlipper.setFlipInterval(3500);
         mViewFlipper.startFlipping();
@@ -119,7 +118,7 @@ public class MainFragment extends android.support.v4.app.Fragment implements New
 
     @Override
     public void SetUpListBook(List<Sach> listBook) {
-        myAdapterChonLoc = new ChonLocAdapter(getContext(),listBook);
+        myAdapterChonLoc = new ChonLocAdapter(getContext(), listBook);
         myRecyclerViewChonLoc.setAdapter(myAdapterChonLoc);
         myAdapterThich = new ThichAdapter(getContext(), listBook);
         myRecyclerViewThich.setAdapter(myAdapterThich);

@@ -88,6 +88,7 @@ public class OrderBookPresenter {
                                 RequestQueue queue = Volley.newRequestQueue(view.getContext());
                                 String url = DrawerNavigationBar.URL + "CT_DATHANGs/PostCT_DATHANG";
 
+
                                 final HashMap<String, String> params = new HashMap<>();
                                 params.put("madathang",datHangs.get(datHangs.size()-1).getMadathang());
                                 params.put("masach", ct_datHang.getMasach());

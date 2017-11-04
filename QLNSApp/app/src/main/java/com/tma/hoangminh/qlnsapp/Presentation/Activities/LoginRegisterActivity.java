@@ -1,4 +1,4 @@
-﻿package com.tma.hoangminh.qlnsapp.Presentation.Activities;
+package com.tma.hoangminh.qlnsapp.Presentation.Activities;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -47,7 +47,7 @@ public class LoginRegisterActivity extends AppCompatActivity implements UserView
         spec.setIndicator("Đăng Nhập");
         tab.addTab(spec);
 
-        //tab Dang Ky
+        //tab Dang Ki
         spec = tab.newTabSpec("t2");
         spec.setContent(R.id.tabDangky);
         spec.setIndicator("Đăng Ký");

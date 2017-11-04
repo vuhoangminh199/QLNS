@@ -17,9 +17,7 @@ import com.tma.hoangminh.qlnsapp.R;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 public class ChonLocAdapter extends RecyclerView.Adapter<ChonLocAdapter.ViewHolder> {
 
@@ -41,8 +39,6 @@ public class ChonLocAdapter extends RecyclerView.Adapter<ChonLocAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ChonLocAdapter.ViewHolder holder, final int position) {
-        long seed = System.nanoTime();
-        Collections.shuffle(listBook, new Random(seed));
         try {
             URL url = new URL(DrawerNavigationBar.URL + "SACHes/GetSACHImage/" + listBook.get(position).getMasach());
             Glide.with(context).fromUrl().asBitmap().load(url).centerCrop().into(holder.myImage);
