@@ -28,6 +28,7 @@
             android:hint="Tìm tên sách,tác giả ..."
             android:imeActionLabel="@drawable/ic_searchdetail"
             android:imeOptions="actionDone"
+            android:inputType="text|number"
             android:lines="1"
             android:maxLines="1"
             android:singleLine="true"
