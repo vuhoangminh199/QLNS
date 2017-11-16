@@ -19,11 +19,7 @@
         <activity
             android:name=".Presentation.Activities.SplashActivity"
             android:noHistory="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Presentation.Fragments.DrawerNavigationBar"
@@ -50,6 +46,16 @@
             android:name=".Presentation.Activities.ChangeProfileActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Presentation.Activities.ChooseDatabaseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <!-- Receriver here -->
         <!-- Service here -->

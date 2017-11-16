@@ -33,7 +33,7 @@ public class DrawerNavigationBar extends AppCompatActivity implements Navigation
     private NewsFragment fourFragment;
     private SearchFragment searchFragment;
     private BottomNavigationView bottomNavigationView;
-    public static String URL = "http://172.19.0.240:1909/api/";
+    public static String URL = "http://bookloverapi.somee.com/api/";
     private static final int TIME_DELAY = 2000;
     private static long back_pressed;
 
