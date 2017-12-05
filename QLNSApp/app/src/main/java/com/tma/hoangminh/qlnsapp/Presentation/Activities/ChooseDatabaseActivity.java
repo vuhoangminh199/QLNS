@@ -13,13 +13,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.tma.hoangminh.qlnsapp.Presentation.Fragments.DrawerNavigationBar;
 import com.tma.hoangminh.qlnsapp.R;
 
 public class ChooseDatabaseActivity extends AppCompatActivity {
-    Button btnNhom1, btnNhom2, btnNhom3;
-
+    Button btnNhom1, btnNhom2, btnNhom3, btnNhom4;
+    EditText editHttp;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +65,8 @@ public class ChooseDatabaseActivity extends AppCompatActivity {
         btnNhom1 = (Button) findViewById(R.id.btnnhom1);
         btnNhom2 = (Button) findViewById(R.id.btnnhom2);
         btnNhom3 = (Button) findViewById(R.id.btnnhom3);
+        btnNhom4 = (Button) findViewById(R.id.btnnhom4);
+        editHttp = (EditText) findViewById(R.id.edit);
     }
 
     @Override
@@ -96,7 +100,7 @@ public class ChooseDatabaseActivity extends AppCompatActivity {
         btnNhom1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DrawerNavigationBar.URL = "http://apiqlns.somee.com/api/";
+                DrawerNavigationBar.URL = "http://apiqlns2.somee.com/api/";
                 Intent intent = new Intent(ChooseDatabaseActivity.this, SplashActivity.class);
                 startActivity(intent);
             }
@@ -112,9 +116,21 @@ public class ChooseDatabaseActivity extends AppCompatActivity {
         btnNhom3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DrawerNavigationBar.URL = "";
+                DrawerNavigationBar.URL = "http://quanlynhasachtestapi.somee.com/api/";
                 Intent intent = new Intent(ChooseDatabaseActivity.this, SplashActivity.class);
                 startActivity(intent);
+            }
+        });
+        btnNhom4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(editHttp.getText().toString().contains(".")){
+                    DrawerNavigationBar.URL = "http://" +editHttp.getText().toString() + "/api/";
+                    Intent intent = new Intent(ChooseDatabaseActivity.this, SplashActivity.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(ChooseDatabaseActivity.this,"Định Dạng Web không đúng",Toast.LENGTH_LONG).show();
+                }
             }
         });
 

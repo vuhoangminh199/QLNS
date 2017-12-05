@@ -53,5 +53,23 @@
             android:background="@android:color/holo_blue_bright"
             android:text="Nhóm Quang Minh"
             android:textColor="@android:color/white" />
+
+        <EditText
+            android:id="@+id/edit"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="example.domain"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/darker_gray" />
+
+        <Button
+            android:id="@+id/btnnhom4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/holo_blue_bright"
+            android:text="Nhóm Minh Toan"
+            android:textColor="@android:color/white" />
     </LinearLayout>
 </LinearLayout>
